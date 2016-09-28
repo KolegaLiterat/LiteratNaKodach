@@ -1,6 +1,6 @@
 #include <iostream>
 
-<<std::endl
+//poprawiłem, dalej testuję gita!
 
 int main()
 {
