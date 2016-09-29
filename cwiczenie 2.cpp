@@ -12,7 +12,7 @@ int main ()
 
     centrymetry = cal * przelicznik;
 
-    std::cout << "\n";
+    std::cout << std::endl;
 
-    std::cout << cal << " cale to " << centrymetry << " centymetrow\n";
+    std::cout << cal << " cale to " << centrymetry << " centymetrow" << std::endl;
 }
