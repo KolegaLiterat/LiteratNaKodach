@@ -14,5 +14,5 @@ int main ()
 
     std::cout << "\n";
 
-    std::cout << cal << " cale to " << centrymetry << " centymetrow";
+    std::cout << cal << " cale to " << centrymetry << " centymetrow\n";
 }
