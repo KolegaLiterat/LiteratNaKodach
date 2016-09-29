@@ -3,7 +3,7 @@
 int main ()
 
 {
-    int cal;
+    double cal;
     double centrymetry;
     double przelicznik = 2.54;
 
