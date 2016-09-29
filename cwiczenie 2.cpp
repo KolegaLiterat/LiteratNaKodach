@@ -2,14 +2,14 @@
 
 int main()
 {
-    double cal;
-    double centrymetry;
-    double przelicznik = 2.54;
+    double cal;                         //Dane wejściowe
+    double centrymetry;                 //Do zapisania wyniku         
+    double przelicznik = 2.54;          //Przelicznik danych wejściowych
 
-    std::cout << "Podaj wymiar w calach: ";
-    std::cin >> cal;
+    std::cout << "Podaj wymiar w calach: "; //Wyświetlna delikatną prośbę o wpisanie danych
+    std::cin >> cal;                        //Złapanie danej z klawiatury
 
-    centrymetry = cal * przelicznik;
+    centrymetry = cal * przelicznik;        //Automagiczne przeliczenie danych
 
-    std::cout << std::endl << cal << " cale to " << centrymetry << " centymetrow." << std::endl;
+    std::cout << std::endl << cal << " cale to " << centrymetry << " centymetrow." << std::endl;   //Wyświetlnie wyniku
 }
