@@ -11,5 +11,5 @@ int main()
 
     centrymetry = cal * przelicznik;        //Automagiczne przeliczenie danych
 
-    std::cout << std::endl << cal << " cale to " << centrymetry << " centymetrow." << std::endl;   //Wyświetlnie wyniku
+    std::cout << "\n" << cal << " cale to " << centrymetry << " centymetrow." << std::endl;   //Wyświetlnie wyniku
 }
