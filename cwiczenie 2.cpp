@@ -1,7 +1,6 @@
 #include <iostream>
 
-int main ()
-
+int main()
 {
     double cal;
     double centrymetry;
@@ -12,7 +11,5 @@ int main ()
 
     centrymetry = cal * przelicznik;
 
-    std::cout << std::endl;
-
-    std::cout << cal << " cale to " << centrymetry << " centymetrow" << std::endl;
+    std::cout << std::endl << cal << " cale to " << centrymetry << " centymetrow." << std::endl;
 }
