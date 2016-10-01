@@ -6,7 +6,7 @@ int main()
 
 	pytanie:
 	std::cout << "\n" 
-		"Ile gwiazdek ma kapitan?\n?";
+		"Ile gwiazdek ma kapitan?\n? ";
 	std::cin >> ile; //nadaje wartość wpisaną z klawiatury
 	std::cout << "\n"
 		"Rysujemy! WSZYSTKIE " << ile << std::endl;
