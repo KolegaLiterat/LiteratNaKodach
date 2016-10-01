@@ -13,7 +13,7 @@ int main()
 	
 		std::cout << "\n" 
 			"Nie Devi, kapitan nie bedzie mial " << ile <<  " gwiazdki..." << std::endl;
-		} else () {
+		} else {
 
 		std::cout << "\n";
 			while (ile) {
