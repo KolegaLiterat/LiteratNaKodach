@@ -24,7 +24,7 @@ int main()
 	} else {
 		for (kasa > 0; kasa < 866; kasa = kasa) { //dla kazdej kasa wiekszej lub rownej zero i mniejszej od 866, wartosc kasa jest ponowanie zapisywana bez zmian do kasa;
 		std::cout << "\n"
-		"U¿ytkowniku! Do dobrej odpowiedzi brakuje Ci " << kasa - 866 << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie róznicy
+		"U¿ytkowniku! Do dobrej odpowiedzi brakuje Ci " << 866 - kasa  << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie róznicy
 		kara = 1;
 		break;
 		}
