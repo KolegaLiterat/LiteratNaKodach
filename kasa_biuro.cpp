@@ -23,16 +23,16 @@ int main()
 		kara=0; 	
 	} else {
 		for (kasa > 0; kasa < 866; kasa = kasa) { //dla kazdej kasa wiekszej lub rownej zero i mniejszej od 866, wartosc kasa jest ponowanie zapisywana bez zmian do kasa;
-		std::cout << "\n"
-		"U¿ytkowniku! Do dobrej odpowiedzi brakuje Ci " << 866 - kasa  << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie róznicy
-		kara = 1;
-		break;
+			std::cout << "\n"
+				"U¿ytkowniku! Do dobrej odpowiedzi brakuje Ci " << 866 - kasa  << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie róznicy
+			kara = 1;
+			break;
 		}
 		for (kasa > 0; kasa > 866; kasa = kasa) { //dla kazdej kasa wiekszej od zera i wiekszej od 866, wartosc kasa jest ponownie zapisywana bez zmian do kasa
-		std::cout << "\n"
-			"U¿ytkowniku! Tym razem podales za duzo o " << kasa - 866 << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie ró¿nicy
-		kara = 1;
-		break;
+			std::cout << "\n"
+				"U¿ytkowniku! Tym razem podales za duzo o " << kasa - 866 << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie ró¿nicy
+			kara = 1;
+			break;
 		}
 	} 	
 
