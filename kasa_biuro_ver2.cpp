@@ -20,21 +20,21 @@ int main()
 			"skad masz takie informacje? O.o\n"
 			"Widziales magiczna kartke?" << std::endl;
 		kara = 0; 	
-	} else if (kasa > 0) {
-		while (kasa < 866) {
+	} else if (kasa > 0) { //sprawdzam, czy wpisana wartoœæ jest wiêksza od zera;
+		while (kasa < 866) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
 			std::cout << "\n"
 				"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << 866 - kasa << "." << " Kara musi byc..." << std::endl;
-			kara = 1;
-			break;
+			kara = 1; //dostajesz kare
+			break; //przerywam pêtlê
 		}
-		while (kasa > 866) {
+		while (kasa > 866) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
 			std::cout << "\n"
 				"Uzytkowniku! Jest za duzo o " << kasa - 866 << "." << " Kara musi byc..." << std::endl;
 			kara = 1;
-			break;
+			break; //przerywam pêtlê
 		} 
 	} 
-	if (kara = 1) {
+	if (kara = 1) { //rezygnujê ze switcha; jakoœ nie widzê sensu w sprawdzaniu switchem prawda-fa³sz
 		std::cout << "\n"
 			"BACH! MACZUGA W GLOWE!" << std::endl;
 	} else {
