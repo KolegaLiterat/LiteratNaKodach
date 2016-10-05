@@ -27,4 +27,5 @@ int main ()
 			cout <<	"WITAJ W GARMORY!";
 		break;
 	}
+	cout << "\n";
 }
