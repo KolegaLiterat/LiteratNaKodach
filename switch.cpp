@@ -16,7 +16,7 @@ int main ()
 			break;
 		
 		case 10:
-			cout << "Jedno, wielkie nigdzie...";
+			cout << "Jedno wielkie nigdzie...";
 			break;
 			
 		case 11:
@@ -27,6 +27,5 @@ int main ()
 			cout << "Buntownik ;)";
 			break;
 	}
-
 	cout << "\n";
 }
