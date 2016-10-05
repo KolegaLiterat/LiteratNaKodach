@@ -11,21 +11,21 @@ int main ()
 	cout << "\n";
 
 	switch (sciezka) { 
-		default:
-			cout << "Buntownik ;)";
-		break;
-
 		case 9:
 			cout <<	"Wyl¹dowa³eœ w lesie...";
-		break;
+			break;
 		
 		case 10:
 			cout << "Jedno, wielkie nigdzie...";
-		break;
+			break;
 			
 		case 11:
 			cout <<	"WITAJ W GARMORY!";
-		break;
+			break;
+		
+		default:
+			cout << "Buntownik ;)";
+			break;
 	}
 	cout << "\n";
 }
