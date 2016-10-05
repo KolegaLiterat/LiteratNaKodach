@@ -27,5 +27,6 @@ int main ()
 			cout << "Buntownik ;)";
 			break;
 	}
+
 	cout << "\n";
 }
