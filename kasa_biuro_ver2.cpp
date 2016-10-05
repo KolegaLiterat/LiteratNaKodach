@@ -17,7 +17,7 @@ int main()
 			"Przykro mi, ale wartosci ujemnej lub zera nie wpiszesz\n"
 			"Kara musi byc..." << endl;
 		kara = 1;
-	} else if (kasa == 866) {
+	} else if (kasa = 866) {
 		cout << "\n"
 			"skad masz takie informacje? O.o\n"
 			"Widziales magiczna kartke?" << endl;
