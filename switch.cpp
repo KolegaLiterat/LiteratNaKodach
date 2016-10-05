@@ -6,7 +6,7 @@ int main ()
 	signed int sciezka;
 	
 	cout << "Gdzie idziemy?\n" 
-		"Wybierz: 9, 10 lub 11\n?";
+		"Wybierz: 9, 10 lub 11\n? ";
 	cin >> sciezka;
 	cout << "\n";
 
