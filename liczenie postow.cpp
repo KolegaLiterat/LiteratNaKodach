@@ -1,4 +1,6 @@
 #include <iostream>
+#define sto 100 
+
 using namespace std;
 
 int main()
@@ -15,6 +17,6 @@ int main()
 	cout << "\n Widziany link: ";
 	cin >> link;
 
-	cout << "\n CRT P: " << 100 * post / zasieg << "% \n"
-		" CTR L: " << 100 * link / zasieg << "%";
+	cout << "\n CRT P: " << sto * post / zasieg << "% \n"
+		" CTR L: " << sto * link / zasieg << "%";
 }
