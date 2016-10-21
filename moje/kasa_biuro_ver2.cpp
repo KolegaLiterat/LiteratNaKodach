@@ -1,5 +1,5 @@
 #include <iostream>
-#define koszt 866
+#define KOSZT 866
 using namespace std;
 
 int main()
@@ -7,7 +7,7 @@ int main()
 	float kasa; //wypada za³o¿yæ, ¿e bêdzie wartoœæ 0.7
 	bool kara = true; //nie mam pojêcia, czy dobrze tego u¿y³em; w ksi¹¿ce brakuje mi dobrego przyk³adu
 
-	cout << "Ile kosztuje utrzymanie biura?\n? "; //wpisanie wartoœci do kasa
+	cout << "Ile KOSZTuje utrzymanie biura?\n? "; //wpisanie wartoœci do kasa
 	cin >> kasa;
 	cout << "\n";
 	/* Troche bardziej rozbudowana funkcja, takie male cwiczenie, bo chcialem sprawdzicz czy potrafie cos takiego zrobic;
@@ -15,18 +15,18 @@ int main()
 
 	if (kasa <= 0) { //sprwadzam, czy wartosc kasa jest wieksza lub rowna od zera
 		cout <<	"Przykro mi, ale wartosci ujemnej lub zera nie wpiszesz\n"
-			"Zera nie ma bo biuro zawsze coœ kosztuje, a na siebie nie zarabie... (c) Thinker"
+			"Zera nie ma bo biuro zawsze coœ KOSZTuje, a na siebie nie zarabie... (c) Thinker"
 			"Kara musi byc..." << endl;
 			kara = 1;
-	} else if (kasa == koszt) {
+	} else if (kasa == KOSZT) {
 		cout << "Skad masz takie informacje? O.o\n"
 			"Widziales magiczna kartke?" << endl;
 		kara = 0;
-	} else if (kasa < koszt) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
-		cout <<	"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << koszt - kasa << "." << " Kara musi byc..." << endl;
+	} else if (kasa < KOSZT) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
+		cout <<	"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << KOSZT - kasa << "." << " Kara musi byc..." << endl;
 		kara = 1; //dostajesz kare
-	} else if (kasa > koszt) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
-		cout <<	"Uzytkowniku! Jest za duzo o " << kasa - koszt << "." << " Kara musi byc..." << endl;
+	} else if (kasa > KOSZT) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
+		cout <<	"Uzytkowniku! Jest za duzo o " << kasa - KOSZT << "." << " Kara musi byc..." << endl;
 		kara = 1;
 	}
 	
