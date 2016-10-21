@@ -1,5 +1,6 @@
 #include <iostream>
 #define KOSZT 866
+
 using namespace std;
 
 int main()
