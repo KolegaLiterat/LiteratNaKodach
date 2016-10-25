@@ -8,7 +8,7 @@ int main()
 	float kasa; //wypada za³o¿yæ, ¿e bêdzie wartoœæ 0.7
 	bool kara = true; //nie mam pojêcia, czy dobrze tego u¿y³em; w ksi¹¿ce brakuje mi dobrego przyk³adu
 
-	cout << "Ile kosztujeuje utrzymanie biura?\n? "; //wpisanie wartoœci do kasa
+	cout << "Ile kosztuje utrzymanie biura?\n? "; //wpisanie wartoœci do kasa
 	cin >> kasa;
 	cout << "\n";
 	/* Troche bardziej rozbudowana funkcja, takie male cwiczenie, bo chcialem sprawdzicz czy potrafie cos takiego zrobic;
@@ -23,10 +23,10 @@ int main()
 		cout << "Skad masz takie informacje? O.o\n"
 			"Widziales magiczna kartke?" << endl;
 		kara = 0;
-	} else if (kasa < KOSZT) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
+	} else if (kasa < UTRZYMANIE_BIURA) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
 		cout <<	"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << UTRZYMANIE_BIURA - kasa << "." << " Kara musi byc..." << endl;
 		kara = 1; //dostajesz kare
-	} else if (kasa > KOSZT) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
+	} else if (kasa > UTRZYMANIE_BIURA) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
 		cout <<	"Uzytkowniku! Jest za duzo o " << kasa - UTRZYMANIE_BIURA << "." << " Kara musi byc..." << endl;
 		kara = 1;
 	}
