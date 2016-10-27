@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #define STO_PROCENT 100 
 
 using namespace std;
@@ -17,6 +18,6 @@ int main()
 	cout << "\n Widziany link: ";
 	cin >> link;
 
-	cout << "\n CRT P: " << STO_PROCENT * post / zasieg << "% \n"
-		" CTR L: " << STO_PROCENT * link / zasieg << "%";
+	cout << "\n CRT P: " << round(STO_PROCENT * post / zasieg) << "% \n"
+		" CTR L: " << round(STO_PROCENT * link / zasieg) << "%";
 }
