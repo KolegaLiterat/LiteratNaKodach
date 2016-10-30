@@ -1,12 +1,16 @@
 #include <iostream>
-#include <cmath>
 #define STO_PROCENT 100 
 
 using namespace std;
 
+inline int zao(float wynik)
+{
+	return (wynik + 0.5);
+}
+
 int main()
 {
-	float post, link;
+	float post, link, wynik;
 	int zasieg;
 		
 	cout << "Podej zasieg: ";
@@ -18,6 +22,6 @@ int main()
 	cout << "\n Widziany link: ";
 	cin >> link;
 
-	cout << "\n CRT P: " << round(STO_PROCENT * post / zasieg) << "% \n"
-		" CTR L: " << round(STO_PROCENT * link / zasieg) << "%";
+	cout << "\n CRT P: " << zao(wynik = STO_PROCENT * post / zasieg) << "% \n"
+		" CTR L: " << zao(wynik = STO_PROCENT * link / zasieg) << "%";
 }
