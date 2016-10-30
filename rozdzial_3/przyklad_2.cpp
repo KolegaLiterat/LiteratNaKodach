@@ -2,7 +2,7 @@
 
 using namespace std;
 
-long potega(int stopien, long liczba);
+long potega(int stopien, long liczba); //mam watpliwosci co do tego int; w ksiazce jest to opisane jako próba niejawnej zmiany; przera¿a mnie zwrot "niejawnej"...
 
 int main()
 {
