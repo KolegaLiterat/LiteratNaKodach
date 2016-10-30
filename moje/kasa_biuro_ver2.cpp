@@ -1,4 +1,6 @@
 #include <iostream>
+#define UTRZYMANIE_BIURA 866
+
 using namespace std;
 
 int main()
@@ -16,16 +18,17 @@ int main()
 		cout <<	"Przykro mi, ale wartosci ujemnej lub zera nie wpiszesz\n"
 			"Zera nie ma bo biuro zawsze coœ kosztuje, a na siebie nie zarabie... (c) Thinker"
 			"Kara musi byc..." << endl;
-			kara;
-	} else if (kasa == 866) {
+			kara = 1;
+	} else if (kasa == UTRZYMANIE_BIURA) {
 		cout << "Skad masz takie informacje? O.o\n"
 			"Widziales magiczna kartke?" << endl;
-	} else if (kasa < 866) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
-		cout <<	"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << 866 - kasa << "." << " Kara musi byc..." << endl;
-		kara; //dostajesz kare
-	} else if (kasa > 866) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
-		cout <<	"Uzytkowniku! Jest za duzo o " << kasa - 866 << "." << " Kara musi byc..." << endl;
-		kara;
+		kara = 0;
+	} else if (kasa < UTRZYMANIE_BIURA) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
+		cout <<	"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << UTRZYMANIE_BIURA - kasa << "." << " Kara musi byc..." << endl;
+		kara = 1; //dostajesz kare
+	} else if (kasa > UTRZYMANIE_BIURA) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
+		cout <<	"Uzytkowniku! Jest za duzo o " << kasa - UTRZYMANIE_BIURA << "." << " Kara musi byc..." << endl;
+		kara = 1;
 	}
 	
 	if (kara) { //rezygnujê ze switcha; jakoœ nie widzê sensu w sprawdzaniu switchem prawda-fa³sz
