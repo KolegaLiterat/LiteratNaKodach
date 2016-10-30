@@ -6,7 +6,7 @@ int kukulka(int ile);
 
 int main()
 {	
-	int m; //deklaracja zmiennej m; w ksi¹¿ce ma zdefiniowan¹ wartoœæ 20, ¿eby pokazaæ, ¿e po funkcji zmieni siê na 77
+	int m = 67; //deklaracja zmiennej m; w ksi¹¿ce ma zdefiniowan¹ wartoœæ 20, ¿eby pokazaæ, ¿e po funkcji zmieni siê na 77
 	
 	cout << "Zaczynamy" << endl;
 
