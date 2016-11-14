@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #define STO_PROCENT 100
 
 using namespace std;
@@ -8,57 +7,55 @@ void posty();
 void dodawanie();
 
 int main()
-
 {
 	int wybor;
-
-	cout << "Co dzisiaj robimy?\n"
-			"[1] Liczymy posty\n"
-			"[2] Dodajemy uzytownikow\n";
+	
+	cout << "Co robimy?\n"
+		"[1] Liczymy zasieg\n"
+		"[2] Dodajemy szkodnikow\n";
 	cin >> wybor;
 
 	switch (wybor) {
-
 		case 1:
-		posty();
-		break;
-
+			posty();
+			break;
+		
 		case 2:
-		dodawanie();
-		break;
-
+			dodawanie();
+			break;
+		
 		default:
-		break;
+			break;
 	}
 }
 
 void posty()
 {
-	float post, link, wynik;
+	float post, link; //potrzebne beda jeszcze zmienne zapisujace wyniki obu obliczen; docelowo program ma zapisywac dane do pliku
 	int zasieg;
-
-	cout << "Podej zasieg: ";
+	
+	cout << "Podaj zasieg z tego tygodnia:\n"; //kolejna funkcjonalnosc: zebranie calych zasiegow i porwnanie ich (4 tygodnie)
 	cin >> zasieg;
-
-	cout << "\n Widziany post: ";
+	
+	cout << "Ile razy byl widziany post:\n";
 	cin >> post;
-
-	cout << "\n Widziany link: ";
+	
+	cout << "Ile razy zostal klikniety link:\n";
 	cin >> link;
-
-	cout << "\n CRT P: " << round(wynik = STO_PROCENT * post / zasieg) << "% \n"
-		" CTR L: " << round(wynik = STO_PROCENT * link / zasieg) << "%";
+	
+	cout << " CTR P: " << STO_PROCENT * post / zasieg << "%\n" 	//CTR P - do zapisania do zmiennej
+		<< " CTR L: " << STO_PROCENT * link / zasieg << "%\n";	//CTR L - do zapisania do zmiennej
 }
 
 void dodawanie()
 {
-	int liczba, wynik;
+	int liczba, suma = 0;
 
-	while (liczba != 0) {
-		cout << "Ilu ich bylo?\n";
+	do {	
+		cout << "Ilu ich bylo:\n";
 		cin >> liczba;
-		wynik = liczba + wynik;
-	}
+		suma += liczba;
+	} while (liczba != 0);
 
-	cout << "W zeszlym tygodniu mielismy " << wynik << " szkodnikow";
+	cout << "W zeszlym tygodniu mielismy " << suma << " szkodnikow.\n"; //docelowo - zapisywanie sumy uzytkowniko w ciagu tygodnia oraz flagowanie czasu trwania eventow i analizowanie ich wplywi na przyrost uzytkownikow
 }

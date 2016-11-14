@@ -1,53 +1,41 @@
 #include <iostream>
+#define UTRZYMANIE_BIURA 866
+
+using namespace std;
 
 int main()
 {
-	int kara; // 1 i 0; test na zasadzie prawda - fa³sz
-	double kasa; //bo wypada³oby za³o¿yæ, ¿e ktoœ wpise 98.90
+	float kasa; //wypada za³o¿yæ, ¿e bêdzie wartoœæ 0.7
+	bool kara = true; //nie mam pojêcia, czy dobrze tego u¿y³em; w ksi¹¿ce brakuje mi dobrego przyk³adu
 
-	std::cout << "Ile kosztuje utrzymanie biura?\n? "; //wpisanie wartoœci do kasa
-	std::cin >> kasa;
-	
+	cout << "Ile kosztuje utrzymanie biura?\n? "; //wpisanie wartoœci do kasa
+	cin >> kasa;
+	cout << "\n";
 	/* Troche bardziej rozbudowana funkcja, takie male cwiczenie, bo chcialem sprawdzicz czy potrafie cos takiego zrobic;
 	Moja walka z tym trwala bardzo dlugo, ale nauczylem sie kliku rzeczy. Przede wszystkim tego, ze mam patrzec na to, co pisze i uklada program w sposob logiczny dlatego:*/	
 
 	if (kasa <= 0) { //sprwadzam, czy wartosc kasa jest wieksza lub rowna od zera
-		std::cout << "\n"
-			"Przykro mi, ale wartosci ujemnej lub zera nie wppiszesz\n"
-			"Kara musi byc..." << std::endl;
+		cout <<	"Przykro mi, ale wartosci ujemnej lub zera nie wpiszesz\n"
+			"Zera nie ma bo biuro zawsze coœ kosztuje, a na siebie nie zarabie... (c) Thinker"
+			"Kara musi byc..." << endl;
+			kara = 1;
+	} else if (kasa == UTRZYMANIE_BIURA) {
+		cout << "Skad masz takie informacje? O.o\n"
+			"Widziales magiczna kartke?" << endl;
+		kara = 0;
+	} else if (kasa < UTRZYMANIE_BIURA) { //dopóki wpisana wartoœæ jest mniejsza, ni¿ 866 wyœwietlany jest ten tekst
+		cout <<	"Uzytkowniku! Do dobrej odpowiedzi brakuje Ci " << UTRZYMANIE_BIURA - kasa << "." << " Kara musi byc..." << endl;
+		kara = 1; //dostajesz kare
+	} else if (kasa > UTRZYMANIE_BIURA) { //dopóki wartoœæ kasa jest wiêksza od 866, wyœwietlany jest ten tekst
+		cout <<	"Uzytkowniku! Jest za duzo o " << kasa - UTRZYMANIE_BIURA << "." << " Kara musi byc..." << endl;
 		kara = 1;
-	} else if (kasa == 866) { //sprawdzam, czy wartosc kasa jest rowna 866
-		std::cout << "\n"
-			"skad masz takie informacje? O.o\n"
-			"Widziales magiczna kartke?" << std::endl;
-		kara=0; 	
+	}
+	
+	if (kara) { //rezygnujê ze switcha; jakoœ nie widzê sensu w sprawdzaniu switchem prawda-fa³sz
+		cout << "\n"
+			"BACH! MACZUGA W GLOWE!" << endl;
 	} else {
-		for (kasa > 0; kasa < 866; kasa = kasa) { //dla kazdej kasa wiekszej lub rownej zero i mniejszej od 866, wartosc kasa jest ponowanie zapisywana bez zmian do kasa;
-			std::cout << "\n"
-				"U¿ytkowniku! Do dobrej odpowiedzi brakuje Ci " << 866 - kasa  << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie róznicy
-			kara = 1;
-			break;
-		}
-		for (kasa > 0; kasa > 866; kasa = kasa) { //dla kazdej kasa wiekszej od zera i wiekszej od 866, wartosc kasa jest ponownie zapisywana bez zmian do kasa
-			std::cout << "\n"
-				"U¿ytkowniku! Tym razem podales za duzo o " << kasa - 866 << "." << " Kara musi byc..." << std::endl; //wyliczenie i podanie ró¿nicy
-			kara = 1;
-			break;
-		}
-	} 	
-
-	//Switch do sprawdzenia, czy masz jakies punkty kary (w trakcie pisanie tego malego kodu dowiedzialem sie, ze moze on miec wylacznie int...
-
-	switch (kara) {
-		case 0:			
-		std::cout << "\n"
-			"Uciekasz przed maczuga, BRAWO!" << std::endl;
-		break;
-
-		case 1:
-		std::cout << "\n"
-			"BACH! MACZUGA W GLOWE!" << std::endl;
-		break;
+		cout << "\n"
+			"BRAWO! UCIEKASZ PRZED MACZUGA!" << endl;
 	}
 }
-
