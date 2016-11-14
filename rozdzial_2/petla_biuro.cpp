@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	int suma, liczba, wys;
+	int liczba, suma = 0, wys = 0;
 
 	do {
 		cout << "Podaj liczbe:\n? ";
