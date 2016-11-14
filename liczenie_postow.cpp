@@ -17,15 +17,15 @@ int main()
 
 	switch (wybor) {
 		case 1:
-		posty();
-		break;
+			posty();
+			break;
 		
 		case 2:
-		dodawanie();
-		break;
+			dodawanie();
+			break;
 		
 		default:
-		break;
+			break;
 	}
 }
 
@@ -49,13 +49,13 @@ void posty()
 
 void dodawanie()
 {
-	int liczba, suma;
-	
-	while (liczba != 0) {
+	int liczba, suma = 0;
+
+	do {	
 		cout << "Ilu ich bylo:\n";
 		cin >> liczba;
-		suma = suma + liczba;
-	}
+		suma += liczba;
+	} while (liczba != 0);
 
 	cout << "W zeszlym tygodniu mielismy " << suma << " szkodnikow.\n"; //docelowo - zapisywanie sumy uzytkowniko w ciagu tygodnia oraz flagowanie czasu trwania eventow i analizowanie ich wplywi na przyrost uzytkownikow
 }
