@@ -5,6 +5,7 @@ using namespace std;
 
 void posty();
 void dodawanie();
+//void allegro(); //potrzebuje narzedzia do zbierania i analizowania danych z Allegro; to, które dosta³em trzyma dane tylko jeden tydzieñ...
 
 int main()
 {
@@ -58,4 +59,9 @@ void dodawanie()
 	} while (liczba != 0);
 
 	cout << "W zeszlym tygodniu mielismy " << suma << " szkodnikow.\n"; //docelowo - zapisywanie sumy uzytkowniko w ciagu tygodnia oraz flagowanie czasu trwania eventow i analizowanie ich wplywi na przyrost uzytkownikow
+}
+
+void allegro()
+{
+	//Dane do zbierania: nazwa uzytkownika, ilosc aukcji, rodzaj aukcji (zloto lub postacie), udzial w sprzedazy z ostatniego tygodnia, podejete dzialanie (wpis na liste lub ban)
 }
