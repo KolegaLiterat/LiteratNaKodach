@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
@@ -12,6 +11,11 @@ int main ()
 	
 	cout << "Chcesz sie dowiedziec kiedy wypada Wielkanoc? No to podaj rok!\n";
 	cin >> rok;
+
+	if (rok < 0) {
+		cout << "Nie.\n";
+		return 0;
+	};
 	
 	cout << "Jaki kalendarz cie interesuje?\n"
 		"[1] Gregorianski\n"
@@ -24,7 +28,7 @@ int main ()
 			break;
 
 		case 2:
-			//julianski (rok);
+			julianski (rok);
 			break;
 		
 		default:
@@ -64,5 +68,24 @@ void gregorianski (int rok)
 
 void julianski (int rok)
 {
-	
+	int a, a_1, b, b_1, c, c_1, d, d_1, d_2, e_1, e_2, e, miesiac, dzien_1, dzien_2, dzien;
+
+	a_1 = rok / 4;
+	a = rok - (a_1 * 4);
+	b_1 = rok / 7;
+	b = rok - (b_1 * 7);
+	c_1 = rok / 19;
+	c = rok - (c_1 * 19);
+	d_1 = 19 * c + 15;
+	d_2 = d_1 / 30;
+	d = d_1 - (d_2 * 30);
+	e_1 = 2 * a + 4 * b - d + 34;
+	e_2 = e_1 / 7;
+	e = e_1 - (e_2 * 7);
+	miesiac = (d + e + 114) / 31;
+	dzien_1 = d + e + 114;
+	dzien_2 = dzien_1 / 31;
+	dzien = dzien_1 - (dzien_2 * 31) + 1;
+
+	cout << "Wielkanoc przypada na " << dzien << "." << miesiac << "." << rok << "\n";
 }
