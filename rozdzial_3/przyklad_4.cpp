@@ -19,5 +19,5 @@ void fff(void)
 	int x = 5;	//definicja zmiennej automatycznej x, która ¿yje w obrêbie fff
 	liczba--;	//zmiejszenie wartosci obiektu globalnego liczba o 1 
 	
-	cout << " sumka = " << (x + liczba); //wynikiem bedzie 14, poniewaz dodane zosta³o x = 5 do liczby = 9 (bo 10 - 1); do zmiennej i funkcja fff nie mia³a dostepu
+	cout << " sumka = " << (x + liczba) << "\n"; //wynikiem bedzie 14, poniewaz dodane zosta³o x = 5 do liczby = 9 (bo 10 - 1); do zmiennej i funkcja fff nie mia³a dostepu
 }
