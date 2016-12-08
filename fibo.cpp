@@ -25,7 +25,6 @@ int fibo(int ciag)
 	static int a, b = 1, c;	//a i c równe zero, poniewa¿ s¹ zmiennymi lokalnymi statycznymi; i u¿y³em tutaj taba, a nie spacji, ale to pewnie widzisz :D
 	
 	c = a + b;
-	
 	ciag--;
 
 	if (ciag > 0) {
