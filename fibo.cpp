@@ -32,6 +32,8 @@ int fibo(int ciag)
 		b = c;
 		
 		fibo(ciag);
+	} else if (ciag < 0) {
+		cout << "Poszukiwany wyraz wynosi 0\n";
 	} else {
 		cout << "Poszukiwany wyraz wynosi " << c << "\n";
 	}
