@@ -82,5 +82,7 @@ void zmianyU()
 	} else if (dzien_1 < dzien_2) {
 		cout << "Zmiana wynosi " << (dzien_2 - dzien_1) * STO_PROCENT / dzien_1 << "%.\n";
 		
+	} else {
+		cout << "Brak zmiany, bo okazalo sie, ze tak tez moze byc.\n";
 	}
 }
