@@ -20,19 +20,19 @@ int main()
 	switch (wybor) {
 		case 1:
 			posty();
-			break;
+				break;
 		
 		case 2:
 			dodawanie();
-			break;
+				break;
 		case 3:
 			zmianyU();
-			break;
+				break;
 		
 		default:
 			cout << "BLAD!!!";
 			return 0;
-			break;
+				break;
 	}
 }
 
@@ -82,5 +82,8 @@ void zmianyU()
 	} else if (dzien_1 < dzien_2) {
 		cout << "Zmiana wynosi " << (dzien_2 - dzien_1) * STO_PROCENT / dzien_1 << "%.\n";
 		
-	}
+	} else {
+		cout << "Zmiana wynosi 0%";
+	
+	}	
 }
