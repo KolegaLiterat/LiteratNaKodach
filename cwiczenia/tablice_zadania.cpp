@@ -69,7 +69,7 @@ void zadanie_1()	//1. wczytuje 10 liczb do tablicy, po czym wypisuje wszystkie l
 
 	cout << "Najpierw wczytanie liczb.\n";	
 	
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < ROZMIAR_1; i++) {
 		cout << "Wczytuje " << i << " wartosc\n";
 	
 		zadanie_1[i] = liczba;
@@ -78,7 +78,7 @@ void zadanie_1()	//1. wczytuje 10 liczb do tablicy, po czym wypisuje wszystkie l
 	
 	cout << "Teraz wyswietlanie wartosci\n";
 	
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < ROZMIAR_1; i++) {
 		cout << i << " wartosc w tablicy to " << zadanie_1[i] << "\n";
 	}
 }
@@ -90,7 +90,7 @@ void zadanie_2()	//2. prosi u¿ytkownika o podanie 7 liczb po czym wypisuje te li
 	
 	cout << "Tym razem wartosci wpisuje uzyszkodnik.\n";	
 
-	for (i = 0; i < 7; i++) {
+	for (i = 0; i < ROZMIAR_2; i++) {
 		cout << "Podaj wartosc:\n";
 		cin >> zadanie_2[i];
 	}
@@ -104,13 +104,19 @@ void zadanie_2()	//2. prosi u¿ytkownika o podanie 7 liczb po czym wypisuje te li
 
 void zadanie_3()
 {
-	int zadanie_3[ROZMIAR_1];
+	int zadanie_3[ROZMIAR_1]; 
 	int i;
 	
 	cout << "Wartosci podaje uzytkownik.\n";
 	
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < ROZMIAR_1; i++) {
 		cout << "Podaj wartosc\n";
 		cin >> zadanie_3[i];
 	}
+	
+	cout << "Poszukiwania najmniejszej wartosci.\n";
+	
+	for (i = 0; i < ROZMIAR_1; i++) {
+		cout << i << " wartosc w tablicy to " << zadanie_3[i] << "\n";
+	}	
 }
