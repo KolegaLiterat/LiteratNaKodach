@@ -23,7 +23,7 @@ void zadanie_7();
 void zadanie_8();
 
 //funkcje pomocnicze
-void sortowanie(int zadanie_3[]);
+void sortowanie(int zadanie_3i4[]);
 
 int main() {
 	int wybor;
@@ -135,6 +135,7 @@ void zadanie_3i4(int wybor)
 			}
 			break;
 		case 4:
+			//WA¯NE: Zastosowa³em tutaj sortownie od NAJMNIEJSZE do NAJWIÊKSZEJ wartoœci. Zmiana systemu sortowanie wymaga zmiany komunikatu lub indeksów tablicy.
 			cout << "Najmniejsza wartosc w tablicy to " << zadanie_3i4[ROZMIAR_1 - ROZMIAR_1] << "\n"
 				<< "Najwiêszka wartoœæ w tablicy to " << zadanie_3i4[ROZMIAR_1 - 1] << "\n";
 			break;
