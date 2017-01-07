@@ -1,3 +1,5 @@
+//SPIEPRZONE!
+
 #include <iostream>
 
 #define WYMIAR_1 7
