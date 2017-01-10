@@ -40,30 +40,32 @@ void wystapienia(int tablica[])
 {
 	int ile[ROZMIAR];
 	
-	int a = 0, b = 1, i; 
-	
+	int a = 0, b = 1, i;
+
 	for (i = 0; i < ROZMIAR; i++) {
 		ile[i] = 1;
-	}
+	}	
+	
+	i = 0;
 
-	/*while (a < ROZMIAR) {
+	while (a < ROZMIAR) {
 		if (tablica[a] == tablica[b] && b < ROZMIAR) {
-			ile[a]++;
+			ile[i]++;
 			b++;
-			
 		} else if (tablica[a] != tablica[b] && b < ROZMIAR) {
 			b++;
-			
 		} else if (b == ROZMIAR) {
 			a++;
 			b = a + 1;
 		}
-	}*/
+	}
 
+	i = 0;
 	for (a = 0; a < ROZMIAR; a++) {
-		if (tablica[a] != tablica[a+1] && ile[a] != ile[a + 1]) {
-			cout << "Wartosc " << tablica[a] << " wystapila " << ile[a] << " razy\n";
+		i++;
+		if (tablica[a] != tablica[a + 1]) {
+			cout << "Wartosc " << tablica[a] << " wystapila " << ile[i] << " razy\n";
+			i++;
 		}
 	}
-		
 }
