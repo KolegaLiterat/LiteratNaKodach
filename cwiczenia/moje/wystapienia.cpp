@@ -38,34 +38,14 @@ void sortowanie(int tablica[])
 
 void wystapienia(int tablica[])
 {
-	int ile[ROZMIAR];
+	int i, wyst = 1;
 	
-	int a = 0, b = 1, i;
-
 	for (i = 0; i < ROZMIAR; i++) {
-		ile[i] = 1;
-	}	
-	
-	i = 0;
-
-	while (a < ROZMIAR) {
-		if (tablica[a] == tablica[b] && b < ROZMIAR) {
-			ile[i]++;
-			b++;
-		} else if (tablica[a] != tablica[b] && b < ROZMIAR) {
-			b++;
-		} else if (b == ROZMIAR) {
-			a++;
-			b = a + 1;
-		}
-	}
-
-	i = 0;
-	for (a = 0; a < ROZMIAR; a++) {
-		i++;
-		if (tablica[a] != tablica[a + 1]) {
-			cout << "Wartosc " << tablica[a] << " wystapila " << ile[i] << " razy\n";
-			i++;
-		}
+		if (tablica[i] == tablica[i + 1]) {
+			wyst++;
+		} if (tablica[i] != tablica[i + 1]) {
+			cout << "Liczba " << tablica[i] << " wystapila " << wyst << " razy.\n";
+			wyst = 1;
+		} 
 	}
 }
