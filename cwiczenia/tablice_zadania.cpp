@@ -1,7 +1,7 @@
 /*Zestaw zadañ nie koniecznie ¿yciowych, czyli napisz program, który:
 
 
-7. prosi o wpisanie 10 liczb i wypisuje drug¹ w kolejnoœci najwiêksz¹ liczbê.
+
 8. wczytuje liczby do macierzy 3x3 i po wszystkim wypisuje macierz.
 
 Powy¿sze zadania proszê zrealizowaæ u¿ywaj¹c przy tym tablic. Liczby dla uproszczenia mog¹ byæ ca³kowite.*/
@@ -110,7 +110,7 @@ void zadanie_2()
 3. prosi u¿ytkownika o podanie 10 liczb, po czym wypisuje te liczby w kolejnoœci od najmniejszej do najwiêkszej.
 4. j/w z tym, ¿e podaje namniejsz¹ i najwiêksz¹ liczbê w tablicy
 5. prosi o wpisanie przez u¿ytkownika 10 liczb i wypisuje która liczba ile razy wyst¹pi³a.
-
+7. prosi o wpisanie 10 liczb i wypisuje drug¹ w kolejnoœci najwiêksz¹ liczbê.
 */
 
 void zadanie_3i4i5i7(int wybor)
