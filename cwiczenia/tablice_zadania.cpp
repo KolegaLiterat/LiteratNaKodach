@@ -24,7 +24,8 @@ void zadanie_8();
 void sortowanie(int zadanie_3i4i5i7[]);
 void wystepowanie (int zadanie_3i4i5i7[]);
 
-int main() {
+int main()
+{
 	int wybor;
 
 	cout << "Podaj numer zadania (od 1 - 8)\n";
@@ -86,6 +87,7 @@ void zadanie_1()
 }
 
 //2. prosi u¿ytkownika o podanie 7 liczb po czym wypisuje te liczby w odwrotnej kolejnoœci ni¿ je wprowadzono.
+//DO POPRAWY
 
 void zadanie_2()	
 {
@@ -101,7 +103,7 @@ void zadanie_2()
 	
 	cout << "Wypisywanie wartosci. Od KONCA tablicy\n";
 	
-	for (i = 6; i >= 0; i--) {
+	for (i = ROZMIAR_2 - 1; i >= 0; i--) {
 		cout << i << " wartosc w tablicy to " << zadanie_2[i] << "\n";
 	}
 }
@@ -137,13 +139,14 @@ void zadanie_3i4i5i7(int wybor)
 			break;
 		case 4:
 			//WA¯NE: Zastosowa³em tutaj sortownie od NAJMNIEJSZE do NAJWIÊKSZEJ wartoœci. Zmiana systemu sortowania wymaga zmiany komunikatu lub indeksów tablicy.
-			cout << "Najmniejsza wartosc w tablicy to " << zadanie_3i4i5i7[ROZMIAR_1 - ROZMIAR_1] << "\n"
+			cout << "Najmniejsza wartosc w tablicy to " << zadanie_3i4i5i7[0] << "\n"
 				<< "Najwiêszka wartoœæ w tablicy to " << zadanie_3i4i5i7[ROZMIAR_1 - 1] << "\n";
 			break;
 		case 5:
 			wystepowanie(zadanie_3i4i5i7);
 			break;
 		case 7:
+			//Do poprawy: problem pojawia sie, gdy ostatnie dwie wartosci sa rowne (1,2,3,4,4); program podaje niepoprawna odpowiedz
 			cout << "Druga w kolejnosci najwieksza wartosc w tablicy to " << zadanie_3i4i5i7[ROZMIAR_1 - 2] << "\n";
 			break;
 		default:
