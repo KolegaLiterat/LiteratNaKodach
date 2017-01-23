@@ -7,7 +7,7 @@ void sortowanie(int tablica[]);
 
 int main()
 {
-	int tablica[ROZMIAR] = {123, 45, -6, 11};
+	int tablica[ROZMIAR] = {-10, 0, -11, 2};
 	
 	int i;
 
@@ -23,25 +23,30 @@ int main()
 
 void sortowanie(int tablica[])
 {
-	static	int a = 0, b = 1;
+	int a = 0, b = 1;
 	int c;	
 
-	while (a < ROZMIAR) {
+
+	for (a = 0; a < ROZMIAR; a++) {
+		if (tablica[a] >= tablica[a + 1]) {
+			b = tablica[a];
+			tablica[a] = tablica[a + 1];
+			tablica[a + 1] = c;
+		}
+			
+	}	
+
+
+	/*while (a < ROZMIAR) {
 		if (tablica[a] <= tablica[b] && b < ROZMIAR) {
 			b++;
-
-			sortowanie(tablica);
 		} else if (tablica[a] >= tablica[b] && b < ROZMIAR) {
 			c = tablica[a];
 			tablica[a] = tablica[b];
 			tablica[b] = c;
-		
-			sortowanie(tablica);
 		} else if (b == ROZMIAR) {
 			a++;
-			b = a + 1;		
-		
-			sortowanie(tablica);
+			b = a + 1;
 		}
-	}
+	}*/
 }
