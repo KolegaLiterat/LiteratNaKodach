@@ -8,19 +8,18 @@ using namespace std;
 
 int main()
 {
-	int tablica[ROZMIAR];
-	int k, i, w;
+	int tablica[ROZMIAR] = {1, 2, 3, 4, 5, 6};
+	int i = 0, k, w = 0; 
 	
-	for (i = 0; i < ROZMIAR; i++) {
+	/*for (i = 0; i < ROZMIAR; i++) {
 		cout << "Podaj wartosc:\n";
 		cin >> tablica[i];
-	}
+	}*/
 	
-	i = 0;
 	for (w = 0; w < WIERSZE; w++) {
 		for (k = 0; k < KOLUMNY; k++) {
 			cout << "| " << tablica[i] << " |";
-			i++;	
+			i++;
 		}
 		cout << "\n";
 	}
