@@ -22,7 +22,8 @@ void zadanie_8();
 
 //funkcje pomocnicze
 void sortowanie(int zadanie_3i4i5i7[]);
-void wystepowanie (int zadanie_3i4i5i7[]);
+void wystepowanie(int zadanie_3i4i5i7[]);
+void wartosci(int zadanie_3i4i5i7[]);
 
 int main()
 {
@@ -87,7 +88,6 @@ void zadanie_1()
 }
 
 //2. prosi u¿ytkownika o podanie 7 liczb po czym wypisuje te liczby w odwrotnej kolejnoœci ni¿ je wprowadzono.
-//DO POPRAWY
 
 void zadanie_2()	
 {
@@ -146,8 +146,7 @@ void zadanie_3i4i5i7(int wybor)
 			wystepowanie(zadanie_3i4i5i7);
 			break;
 		case 7:
-			//Do poprawy: problem pojawia sie, gdy ostatnie dwie wartosci sa rowne (1,2,3,4,4); program podaje niepoprawna odpowiedz
-			cout << "Druga w kolejnosci najwieksza wartosc w tablicy to " << zadanie_3i4i5i7[ROZMIAR_1 - 2] << "\n";
+			wartosci(zadanie_3i4i5i7);
 			break;
 		default:
 			break;
@@ -205,5 +204,26 @@ void wystepowanie(int zadanie_3i4i5i7[])
 			cout << "Liczba " << zadanie_3i4i5i7[i] << " wystapila " << wyst << " razy.\n";
 			wyst = 1;
 		} 
+	}
+}
+void wartosci(int zadanie_3i4i5i7[])
+{
+	int minus = 1, i;
+	int *pierwsza = &zadanie_3i4i5i7[ROZMIAR_1 - 1], *druga = &zadanie_3i4i5i7[ROZMIAR_1 - 1 - minus];
+	
+	//tablica bedzie posortowana od najmniejsze wartosci do najwiekszej; jezeli zostana wpisane dokladnie takie same wartosci to w zerowy element tablicy bedzie dokladnie taki sam, jak ostatni element;
+	if (zadanie_3i4i5i7[0] == zadanie_3i4i5i7[ROZMIAR_1]) {
+		cout << "Jedyna wartoscia w tablicy jest " << zadanie_3i4i5i7[0] << "\n";
+	} else {
+		for (i = 0; i < ROZMIAR_1; i++) {
+			if (*pierwsza != *druga) {
+				cout << "Pierwsza najwieksza wartosc to " << *pierwsza <<
+					".\nDruga najwieksza wartosc to " << *druga << "\n";
+				break;
+			} else if (*pierwsza == *druga) {
+				minus++;
+				druga = &zadanie_3i4i5i7[ROZMIAR_1 - minus];
+			}
+		}
 	}
 }
