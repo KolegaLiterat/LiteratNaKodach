@@ -212,7 +212,7 @@ void wartosci(int zadanie_3i4i5i7[])
 	int *pierwsza = &zadanie_3i4i5i7[ROZMIAR_1 - 1], *druga = &zadanie_3i4i5i7[ROZMIAR_1 - 1 - minus];
 	
 	//tablica bedzie posortowana od najmniejsze wartosci do najwiekszej; jezeli zostana wpisane dokladnie takie same wartosci to w zerowy element tablicy bedzie dokladnie taki sam, jak ostatni element;
-	if (zadanie_3i4i5i7[0] == zadanie_3i4i5i7[ROZMIAR_1]) {
+	if (zadanie_3i4i5i7[0] == zadanie_3i4i5i7[ROZMIAR_1 - 1]) {
 		cout << "Jedyna wartoscia w tablicy jest " << zadanie_3i4i5i7[0] << "\n";
 	} else {
 		for (i = 0; i < ROZMIAR_1; i++) {
@@ -222,7 +222,7 @@ void wartosci(int zadanie_3i4i5i7[])
 				break;
 			} else if (*pierwsza == *druga) {
 				minus++;
-				druga = &zadanie_3i4i5i7[ROZMIAR_1 - minus];
+				druga = &zadanie_3i4i5i7[ROZMIAR_1 - 1 - minus];
 			}
 		}
 	}
