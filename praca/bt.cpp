@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int antybot();
+void antybot();
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
 
 	antybot();
 }
-int antybot()
+void antybot()
 {
 	static int nagroda = 0, t_kill = 0, maks = 25;
 	int bicie, punkty = 0; 
@@ -25,7 +25,7 @@ int antybot()
 		cout << "Atak " << bicie << "\nIlosc punktow " << punkty << "\nKONIEC ATAKU!\n";
 
 		if (punkty >= maks) {
-			cout << "Wpisz captche!\n [T] = dobrze wpisania, [N] = zle wpisana";
+			cout << "Czas " << bicie * 12 << "\nWpisz captche!\n [T] = dobrze wpisania, [N] = zle wpisana\n";
 			cin >> captcha;
 
 			switch (captcha) {
@@ -58,7 +58,6 @@ int antybot()
 
 					break;
 				default:
-					return 0;
 					break;
 			}
 		}	
@@ -71,6 +70,5 @@ int antybot()
 		antybot();
 	} else {
 		cout << "KONIEC!\n" << "Podsumowanie: Smocze Runy - " << nagroda << "\nCzas respu: " << t_kill << " sekund\n";
-		return 0;
 	}
 }
