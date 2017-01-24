@@ -1,14 +1,13 @@
-/*Zestaw zadañ nie koniecznie ¿yciowych, czyli napisz program, który:
-
-
-
-8. wczytuje liczby do macierzy 3x3 i po wszystkim wypisuje macierz.
-
-Powy¿sze zadania proszê zrealizowaæ u¿ywaj¹c przy tym tablic. Liczby dla uproszczenia mog¹ byæ ca³kowite.*/
 #include <iostream>
 
+//rozmiary tablic
 #define ROZMIAR_1 10
 #define ROZMIAR_2 7
+#define ROZMIAR_3 9
+
+//kolumny i wiersze macierzy
+#define KOLUMNY 3
+#define WIERSZE 3
 
 using namespace std;
 
@@ -22,7 +21,8 @@ void zadanie_8();
 
 //funkcje pomocnicze
 void sortowanie(int zadanie_3i4i5i7[]);
-void wystepowanie (int zadanie_3i4i5i7[]);
+void wystepowanie(int zadanie_3i4i5i7[]);
+void wartosci(int zadanie_3i4i5i7[]);
 
 int main()
 {
@@ -54,7 +54,7 @@ int main()
 			zadanie_3i4i5i7(wybor);
 			break;
 		case 8:
-			//zadanie_8();
+			zadanie_8();
 			break;
 		default:
 			cout << "Az tylu zadan nie bylo...\n";
@@ -87,7 +87,6 @@ void zadanie_1()
 }
 
 //2. prosi u¿ytkownika o podanie 7 liczb po czym wypisuje te liczby w odwrotnej kolejnoœci ni¿ je wprowadzono.
-//DO POPRAWY
 
 void zadanie_2()	
 {
@@ -146,8 +145,7 @@ void zadanie_3i4i5i7(int wybor)
 			wystepowanie(zadanie_3i4i5i7);
 			break;
 		case 7:
-			//Do poprawy: problem pojawia sie, gdy ostatnie dwie wartosci sa rowne (1,2,3,4,4); program podaje niepoprawna odpowiedz
-			cout << "Druga w kolejnosci najwieksza wartosc w tablicy to " << zadanie_3i4i5i7[ROZMIAR_1 - 2] << "\n";
+			wartosci(zadanie_3i4i5i7);
 			break;
 		default:
 			break;
@@ -175,6 +173,27 @@ void zadanie_6()
 	}
 }
 
+//8. wczytuje liczby do macierzy 3x3 i po wszystkim wypisuje macierz.
+
+void zadanie_8()
+{
+	int zadanie_8[ROZMIAR_3];
+	int i, j = 0, k, w; 
+	
+	for (i = 0; i < ROZMIAR_3; i++) {
+		cout << "Podaj wartosc:\n";
+		cin >> zadanie_8[i];
+	}
+	
+	for (w = 0; w < WIERSZE; w++) {
+		for (k = 0; k < KOLUMNY; k++) {
+			cout << "| " << zadanie_8[j] << " |";
+			j++;
+			//do powyzszego rozwiazania nie jestem przekonany; bardzo latwo wyleciec poza tablice, wystarczy nie upilnowac rozmiaru, kolumn i wierszy;
+		}
+		cout << "\n";
+	}
+}
 //funkcje pomocnicze
 
 void sortowanie(int zadanie_3i4i5i7[])
@@ -205,5 +224,27 @@ void wystepowanie(int zadanie_3i4i5i7[])
 			cout << "Liczba " << zadanie_3i4i5i7[i] << " wystapila " << wyst << " razy.\n";
 			wyst = 1;
 		} 
+	}
+}
+void wartosci(int zadanie_3i4i5i7[])
+{
+	int minus = 1, i;
+	int *pierwsza = &zadanie_3i4i5i7[ROZMIAR_1 - 1], *druga = &zadanie_3i4i5i7[ROZMIAR_1 - 1 - minus];
+	
+	//tablica bedzie posortowana od najmniejsze wartosci do najwiekszej; jezeli zostana wpisane dokladnie takie same wartosci to w zerowy element tablicy bedzie dokladnie taki sam, jak ostatni element;
+	if (zadanie_3i4i5i7[0] == zadanie_3i4i5i7[ROZMIAR_1 - 1]) {
+		cout << "Jedyna wartoscia w tablicy jest " << zadanie_3i4i5i7[0] << "\n";
+	} else {
+		for (i = 0; i < ROZMIAR_1; i++) {
+			if (*pierwsza != *druga) {
+				cout << "Pierwsza najwieksza wartosc to " << *pierwsza <<
+					".\nDruga najwieksza wartosc to " << *druga << "\n";
+				break;
+			} else if (*pierwsza == *druga) {
+				minus++;
+				//nie wiem czy sie tutaj nie zamotalem...
+				druga = &zadanie_3i4i5i7[ROZMIAR_1 - 1 - minus];
+			}
+		}
 	}
 }
