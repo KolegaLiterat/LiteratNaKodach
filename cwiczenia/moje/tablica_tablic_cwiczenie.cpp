@@ -20,10 +20,10 @@ int main()
 		switch (wybor) {
 			case 1:
 				wiersze();
-			break;
+				break;
 			default:
 				return 0;
-			break;
+				break;
 		}
 	}
 }
@@ -31,8 +31,6 @@ void wiersze()
 {
 	int tablica[2][4] = {0, 1, 2, 3, 4, 5, 6, 7}; //tablica ma 8 elementow, bo ma dwa wiersze i cztery kolumny, co daje 8 komorek (2 * 4 = 8);
 	int i, j;
-	
-	//wyswietlanie wartosci z pierwszego wiersza
 	
 	cout << "Wiersz 0\n";	
 
