@@ -2,11 +2,13 @@
 
 using namespace std;
 
-#define MAKS_WYBOR 2
+#define MAKS_WYBOR 3
+#define WYMIARY 2
 
 //tablica ustawiona na szytwno, dlatego wpisuje obie wartosci; moglbym wpisac tylko wartosc kolumn i tez by zadzialalo
 void wiersze(int tablica[2][4]);
 void macierz(int tablica[2][4]);
+void wpisz();
 
 int main()
 {
@@ -16,7 +18,8 @@ int main()
 	
 	cout << "Co robimy z tablica?\n"
 		"[1] Wyswietlamy wiersze oddzielnie\n"
-		"[2] Wyswietlamy macierz\n";
+		"[2] Wyswietlamy macierz\n"
+		"[3] Wpisujemy wartosci i je wyswietlamy\n";
 	cin >> wybor;
 	
 	if (wybor < 1 || wybor > MAKS_WYBOR) {
@@ -29,6 +32,8 @@ int main()
 			case 2:
 				macierz(tablica);
 				break;
+			case 3:
+				wpisz();
 			default:
 				return 0;
 				break;
@@ -65,4 +70,41 @@ void macierz(int tablica[2][4])
 		cout << "\n";	
 	}
 		
+}
+void wpisz()
+{
+	int i, j;
+		
+	cout << "Tablica bedzie dwuwymiarowa\n";	
+
+	//nowa tablica z przechowywaniem wartosci do wymiarow; delete w 106 wierszu
+	int *w = new int[WYMIARY];
+
+	for (i = 0; i < WYMIARY; i++) {
+		cout << "Podaj pierwszy wymiar:\n";
+		cin >> w[i];
+	}
+	
+	//deklaracja tablicy w oparciu o wczesniej wpisane wartosci
+	int tablica_2[w[0]][w[1]];
+	
+	for (i = 0; i < w[0]; i++) {
+		for (j = 0; j < w[1]; j++) {
+			cout << "Wpisz wartosc do tablicy:\n";
+			cin >> tablica_2[i][j];
+		}
+	}
+	
+	//TODO: powiazanie wypisywania poprzez powiazanie z funkcja macierz(), a nie przez petle for ()	
+	cout << "Wypisywanie wartosci z tablicy\n";
+
+	for (i = 0; i < w[0]; i++) {
+		for (j = 0; j < w[1]; j++) {
+			cout << "| " << tablica_2[i][j] << " |";
+		}
+		cout << "\n";	
+	}
+	
+	//usuniecie tablicy stworzonej w 79 wierszu
+	delete[] w;
 }
