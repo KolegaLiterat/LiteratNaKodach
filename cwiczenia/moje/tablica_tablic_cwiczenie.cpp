@@ -81,8 +81,13 @@ void wpisz()
 	int *w = new int[WYMIARY];
 
 	for (i = 0; i < WYMIARY; i++) {
-		cout << "Podaj pierwszy wymiar:\n";
+		cout << "Podaj wymiar:\n";
 		cin >> w[i];
+		
+		if (i <= 0) {
+			cout << "Wymiar tablicy nie moze przybierac takiej wartosci!";
+			exit(0);
+		}
 	}
 	
 	//deklaracja tablicy w oparciu o wczesniej wpisane wartosci
