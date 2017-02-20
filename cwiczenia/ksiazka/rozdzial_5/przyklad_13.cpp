@@ -18,6 +18,6 @@ char *strcopy(char *cel, const char *zrodlo)
 {
 	char *poczatek = cel;
 	
-	while(*(cel++) = *(zrodlo++));
+	while (*(cel++) = *(zrodlo++));
 	return poczatek; 
 } 
