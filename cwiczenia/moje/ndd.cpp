@@ -4,8 +4,9 @@ using namespace std;
 
 int main(int argv, char *argc[])
 {
-	int krok = 1;
-	int rozmiar, reszta, obieg, a, b, i, j = 0;
+	
+	int rozmiar, reszta, obieg, i;
+	int j = 0, krok = 1;
 	int *licznik, *mianownik;	
 
 	cout << "Ile ulamkow chcesz sprawdzic?:\n";
