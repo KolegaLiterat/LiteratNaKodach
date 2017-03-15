@@ -51,8 +51,8 @@ int main(int argv, char *argc[])
 }
 void test(int *kontrola)
 {
-	if (*kontrola < 0) {
-		cout << "Blad! Podana wartosc jest mniejsza od 0!\n";
+	if (*kontrola <= 0) {
+		cout << "Blad! Podana wartosc jest mniejsza od lub rowna 0!\n";
 		exit(0);
 	} 
 }
