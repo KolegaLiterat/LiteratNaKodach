@@ -73,14 +73,15 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 			a = *tablica_licz;
 			b = *tablica_mian;
 		}
-	
+	//obliczanie NWD za pomoc¹ algorytmu		
 		while (a % b != 0) {
 			reszta = a % b;
 			a = b;
 			b = reszta;
 		}
 		cout << "Ulamek " << indeks << ":\n" <<
-			"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << b << "\n";
+			"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << b << "\n" <<
+			"Ulamek skrocony za pomoca NWD " << *tablica_licz / b << "/" << *tablica_mian / b << "\n";
 	}
 }
 //funkcja sprawdzajaca, czy uzytkownik nie podal wartosci mniejszej, niz 0
@@ -91,11 +92,3 @@ void test(int *kontrola)
 		exit(0);
 	} 
 }
-
-/*//sprawdzenie, czy wartosci nie sa takie same			
-		if (*tablica_licz / *tablica_mian == 1) {
-			cout << "Ulamek " << indeks << "\n" <<
-			"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << *tablica_licz << "\n";
-		} else {
-	//obliczanie najwiekszego wspolnego dzielnika
-*/
