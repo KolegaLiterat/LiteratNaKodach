@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -46,8 +47,8 @@ void wpisz_ulamek()
 
 				krok++;
 			}
-	obieg--;
-	j++;
+		obieg--;
+		j++;
 		}
 	}
 
@@ -71,7 +72,6 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 		} else if (*tablica_licz > *tablica_mian) {
 			a = *tablica_licz;
 			b = *tablica_mian;
-			
 		}
 	
 	//sprawdzenie, czy wartosci nie sa takie same			
