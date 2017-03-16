@@ -64,12 +64,12 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 	int i, a, b, reszta, indeks; 
 
 	//ustawienie wartosci w taki sposob, aby wieksza byla dzielona przez mniejsza	
-	for (i = 0, indeks = 1; i < rozmiar; i++, indeks++, *tablica_licz++, *tablica_mian++) {
-		if (*tablica_licz < *tablica_mian) {
+	for (i = 0, indeks = 1; i < rozmiar; i++, indeks++, tablica_licz++, tablica_mian++) {
+		if (tablica_licz < tablica_mian) {
 			b = *tablica_licz;
 			a = *tablica_mian;
 			
-		} else if (*tablica_licz > *tablica_mian) {
+		} else if (tablica_licz > tablica_mian) {
 			a = *tablica_licz;
 			b = *tablica_mian;
 		}
@@ -77,7 +77,7 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 	//sprawdzenie, czy wartosci nie sa takie same			
 		if (*tablica_licz / *tablica_mian == 1) {
 			cout << "Ulamek " << indeks << "\n" <<
-			"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << *tablica_licz << "\n";
+			"NWD dla ulamka " << tablica_licz << "/" << tablica_mian << " wynosi " << tablica_licz << "\n";
 		} else {
 	//obliczanie najwiekszego wspolnego dzielnika
 			while (a % b != 0) {
@@ -86,7 +86,7 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 				b = reszta;
 			}
 			cout << "Ulamek " << indeks << ":\n" <<
-				"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << b << "\n";
+				"NWD dla ulamka " << tablica_licz << "/" << tablica_mian << " wynosi " << b << "\n";
 		}
 	}
 }
