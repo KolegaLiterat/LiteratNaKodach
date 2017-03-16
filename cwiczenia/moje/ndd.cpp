@@ -7,7 +7,7 @@ void wpisz_ulamek();
 void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar);
 void test(int *kontrola);
 
-int main(int argv, char *argc[])
+int main()
 {
 	wpisz_ulamek();
 }
@@ -65,7 +65,7 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 
 	//ustawienie wartosci w taki sposob, aby wieksza byla dzielona przez mniejsza	
 	for (i = 0, indeks = 1; i < rozmiar; i++, indeks++, tablica_licz++, tablica_mian++) {
-		if (tablica_licz < tablica_mian) {
+		if (tablica_licz <= tablica_mian) {
 			b = *tablica_licz;
 			a = *tablica_mian;
 			
@@ -74,20 +74,13 @@ void algorytm_euklidesa(int *tablica_licz, int *tablica_mian, int rozmiar)
 			b = *tablica_mian;
 		}
 	
-	//sprawdzenie, czy wartosci nie sa takie same			
-		if (*tablica_licz / *tablica_mian == 1) {
-			cout << "Ulamek " << indeks << "\n" <<
-			"NWD dla ulamka " << tablica_licz << "/" << tablica_mian << " wynosi " << tablica_licz << "\n";
-		} else {
-	//obliczanie najwiekszego wspolnego dzielnika
-			while (a % b != 0) {
-				reszta = a % b;
-				a = b;
-				b = reszta;
-			}
-			cout << "Ulamek " << indeks << ":\n" <<
-				"NWD dla ulamka " << tablica_licz << "/" << tablica_mian << " wynosi " << b << "\n";
+		while (a % b != 0) {
+			reszta = a % b;
+			a = b;
+			b = reszta;
 		}
+		cout << "Ulamek " << indeks << ":\n" <<
+			"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << b << "\n";
 	}
 }
 //funkcja sprawdzajaca, czy uzytkownik nie podal wartosci mniejszej, niz 0
@@ -98,3 +91,11 @@ void test(int *kontrola)
 		exit(0);
 	} 
 }
+
+/*//sprawdzenie, czy wartosci nie sa takie same			
+		if (*tablica_licz / *tablica_mian == 1) {
+			cout << "Ulamek " << indeks << "\n" <<
+			"NWD dla ulamka " << *tablica_licz << "/" << *tablica_mian << " wynosi " << *tablica_licz << "\n";
+		} else {
+	//obliczanie najwiekszego wspolnego dzielnika
+*/
