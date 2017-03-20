@@ -9,12 +9,11 @@ void odwracanie(char slowo[]);
 int main(int argc, char *argv[])
 {
 	char slowo[80];
-	int i;
 
 	cout << "Wpisz slowo:\n";
 	cin >> slowo;			//Dziala na "slowa". Wpisanie "czlowiek jezdzi", spowoduje, ze w tablicy pojawi sie "czlowiek", natomiast to, co jest po spacji - wyleci w kosmos
 
-	odwracanie(slowo)
+	odwracanie(slowo);
 }
 void odwracanie(char slowo[])
 {
