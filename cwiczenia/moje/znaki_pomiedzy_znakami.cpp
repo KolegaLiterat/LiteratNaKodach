@@ -83,4 +83,6 @@ void podawanie_tresci()
     for (i = 0; i <= rozmiar; i++) {
         cout << znak << tekst[i];
     }
+
+    delete[] tekst;
 }
