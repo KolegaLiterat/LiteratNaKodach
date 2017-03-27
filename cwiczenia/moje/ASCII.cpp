@@ -11,7 +11,7 @@ char Fzmiana_znaku(string znak);
 int main()
 {
    string  tekst;
-   int i, krok;
+   int i;
    int przes = 3;
 
    cout << "Wpisz tekst:\n";
