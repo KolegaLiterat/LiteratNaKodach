@@ -10,7 +10,7 @@ char Fzmiana_znaku(string znak);
 
 int main()
 {
-   string  tekst;
+   string tekst;
    int i;
    int przes = 3;
 
@@ -25,8 +25,12 @@ int main()
 
    cout << "\n2. Przesuniecie kodow ASCII o trzy pozycje w zbiorze:\n";
 
-   for (i = 0; i < tekst.length() ; i++) {
-       cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1) << "-";
+   for (i = 0; i < tekst.length(); i++) {
+       if ((int)tekst[i] == 32) {
+           cout << "-" << (int)tekst[i] << "-";
+       } else {
+           cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1) << "-";
+       }
    }
 
    cout << "\n3. Wyswietlenie przesunietych liter na podstawie kodow ASCII:\n";
@@ -39,7 +43,11 @@ char Fzmiana_znaku(string znak)
 {
 	int n_kod;
 
-	n_kod = (int)'A' + ((int)znak[0] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1);
-    
+    if ((int)znak[0] == 32) {
+        n_kod = 32;
+    } else {
+	    n_kod = (int)'A' + ((int)znak[0] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1);
+    }
+
     return n_kod;
 }
