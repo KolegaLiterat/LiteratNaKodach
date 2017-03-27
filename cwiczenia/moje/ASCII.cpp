@@ -6,12 +6,12 @@
 using namespace std;
 
 //funkcja rzutujaca int >> char
-char Fzmiana_znaku(string tekst);
+char Fzmiana_znaku(string znak);
 
 int main()
 {
    string  tekst;
-   int i;
+   int i, krok;
    int przes = 3;
 
    cout << "Wpisz tekst:\n";
@@ -26,25 +26,20 @@ int main()
    cout << "\n2. Przesuniecie kodow ASCII o trzy pozycje w zbiorze:\n";
 
    for (i = 0; i < tekst.length() ; i++) {
-       cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A') << "-";
+       cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1) << "-";
    }
 
    cout << "\n3. Wyswietlenie przesunietych liter na podstawie kodow ASCII:\n";
 
    for (i = 0; i < tekst.length(); i++) {
-       cout << "-" << Fzmiana_znaku(tekst) << "-";
+       cout << "-" << Fzmiana_znaku(&tekst[i]) << "-";
    }
 }
-char Fzmiana_znaku(string tekst) 
+char Fzmiana_znaku(string znak)
 {
-    static int krok = 0;
-    int i, n_kod;
+	int n_kod;
 
-    for (i = krok; i < krok + 1; i++) {
-        n_kod = (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A');
-    }
-
-    krok++;;
-
+	n_kod = (int)'A' + ((int)znak[0] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1);
+    
     return n_kod;
 }
