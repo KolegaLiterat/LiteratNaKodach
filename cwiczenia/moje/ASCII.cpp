@@ -14,7 +14,7 @@ int main()
    int i;
    int przes = 3;
 
-   cout << "Wpisz tekst:\n";
+   //cout << "Wpisz tekst:\n";
    getline(cin, tekst);
    
    ////////////////////////////////////////////////////////////////
@@ -35,17 +35,17 @@ int main()
    }*/
    ////////////////////////////////////////////////////////////////
 
-   cout << "Wyswietlenie przesunietych liter na podstawie kodow ASCII:\n";
+   //cout << "Wyswietlenie przesunietych liter na podstawie kodow ASCII:\n";
 
    for (i = 0; i < tekst.length(); i++) {
-       cout << "-" << Fzmiana_znaku(&tekst[i]) << "-";
+       cout << Fzmiana_znaku(&tekst[i]);
    }
 }
 char Fzmiana_znaku(string znak)
 {
 	int n_kod;
 
-    if ((int)znak[0] < (int)'A' || (int)znak[0] > 'Z') {
+    if ((int)znak[0] < (int)'A' || (int)znak[0] > (int)'Z') {
         n_kod = (int)znak[0];
     } else {
 	    n_kod = (int)'A' + ((int)znak[0] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1);
