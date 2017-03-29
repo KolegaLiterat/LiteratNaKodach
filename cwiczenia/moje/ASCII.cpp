@@ -27,7 +27,7 @@ int main()
    cout << "\n2. Przesuniecie kodow ASCII o trzy pozycje w zbiorze:\n";
 
    for (i = 0; i < tekst.length(); i++) {
-       if ((int)tekst[i] < (int)'A' || (int)tekst[i] > 'Z') {
+       if ((int)tekst[i] < (int)'A' || (int)tekst[i] > (int)'Z') {
            cout << "-" << (int)tekst[i] << "-";
        } else {
            cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1) << "-";
