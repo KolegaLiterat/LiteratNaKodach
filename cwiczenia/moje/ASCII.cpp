@@ -30,7 +30,7 @@ int main()
        if ((int)tekst[i] < (int)'A' || (int)tekst[i] > (int)'Z') {
            cout << "-" << (int)tekst[i] << "-";
        } else {
-           cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1) << "-";
+           cout << "-" << (int)'A' + ((int)tekst[i] - (int)'A' + przes) % ((int)'Z' - (int)'A' + 1) << "-";
        }
    }*/
    ////////////////////////////////////////////////////////////////
@@ -48,7 +48,7 @@ char Fzmiana_znaku(string znak)
     if ((int)znak[0] < (int)'A' || (int)znak[0] > (int)'Z') {
         n_kod = (int)znak[0];
     } else {
-	    n_kod = (int)'A' + ((int)znak[0] - (int)'A' + 3) % ((int)'Z' - (int)'A' + 1);
+	    n_kod = (int)'A' + ((int)znak[0] - (int)'A' + przes) % ((int)'Z' - (int)'A' + 1);
     }
 
     return n_kod;

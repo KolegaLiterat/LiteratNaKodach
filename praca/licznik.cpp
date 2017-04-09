@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -8,7 +9,6 @@ int main()
 {
 	int i, p, wykresy, skok;	//poczatkowe adresy komorek wpisane na sztywno z arkusza; TODO zmienic na podawane przez uzytkownika.
 	int adresy_komorek[1];
-	int *spr;
 
 	cout << "Ile narobiles tych wykresow?\n";
 	cin >> wykresy;
