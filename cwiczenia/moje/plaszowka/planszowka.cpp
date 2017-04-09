@@ -4,7 +4,6 @@
 using namespace std;
 
 void generowanie_planszy();
-void generowanie_srodka(char *plansza);
 
 int main()
 {
@@ -36,23 +35,17 @@ void generowanie_planszy()
         }
     }
 
-    for (i = 0; i < 7; i++) {
-            j = 0;
-            while (j < 10) {
-                generowanie_srodka(&plansza[i][j]);
-                j++;
-            }
-    }
+    for (i = 1; i < 5; i++) {
+        for (j = 1; j < 8; j++) {
 
-    for (i = 0; i < 7; i++) {
+        }
+    } 
+
+    for (i = 0; i < 6; i++) {
        for (j = 0; j < 10; j++) {
            cout << plansza[i][j];
        }
 
        cout << "\n";
     }
-}
-void generowanie_srodka(char *plansza)
-{
-    cout << "Wartosc tablicy: " << plansza << "\n";
 }
