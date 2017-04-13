@@ -6,7 +6,7 @@
 using namespace std;
 
 //funkcja rzutujaca int >> char
-char Fzmiana_znaku(string znak);
+char Fzmiana_znaku(string znak, int przes);
 
 int main()
 {
@@ -38,10 +38,10 @@ int main()
    //cout << "Wyswietlenie przesunietych liter na podstawie kodow ASCII:\n";
 
    for (i = 0; i < tekst.length(); i++) {
-       cout << Fzmiana_znaku(&tekst[i]);
+       cout << Fzmiana_znaku(&tekst[i], przes);
    }
 }
-char Fzmiana_znaku(string znak)
+char Fzmiana_znaku(string znak, int przes)
 {
 	int n_kod;
 
