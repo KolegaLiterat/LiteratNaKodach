@@ -8,7 +8,7 @@ void test(int *spr);
 int main()
 {
 	int i, p, wykresy, skok;	//poczatkowe adresy komorek wpisane na sztywno z arkusza; TODO zmienic na podawane przez uzytkownika.
-	int adresy_komorek[1];
+	int adresy_komorek[2];
 
 	cout << "Ile narobiles tych wykresow?\n";
 	cin >> wykresy;
