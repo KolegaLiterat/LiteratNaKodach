@@ -4,7 +4,7 @@
 using namespace std;
 
 void generowanie_planszy();
-int losowanie_znaku();
+void losowanie_wydarzen(char plansza[][10]);
 
 int main()
 {
@@ -13,16 +13,61 @@ int main()
 void generowanie_planszy()
 {
     char plansza[6][10];
-    bool pole;
-    int i, j, znak;
-    int test = 0, pozycja = 1; 
+    int i, j;
 
     for (i = 0; i < 6; i++) {
-        if (i == 0 || i == 5) {
+        if (i == 0) {
             j = 0;
             while (j < 10) {
+                if (j == 7) {
+                    plansza[i][j] = '/';
+                    j++;
+                } else {
                     plansza[i][j] = '#';
                     j++;
+                }
+            }
+        } else if (i == 1) {
+            j = 0;
+            while (j < 10) {
+                if (j == 0 || j == 9) {
+                    plansza[i][j] = '#';
+                    j++;
+                } else if (j == 4) {
+                    plansza[i][j] = '/';
+                    j++;
+                } else {
+                    plansza[i][j] = ' ';
+                    j++;
+                }
+            }
+        } else if (i == 2) {
+            j = 0;
+            while (j < 10) {
+                if (j == 0 || j == 4 || j == 9) {
+                    plansza[i][j] = '#';
+                    j++;
+                } else {
+                    plansza[i][j] = ' ';
+                    j++;
+                }
+            }
+        } else if (i == 3) {
+            j = 0;
+            while (j < 10) {
+                if (j < 5 || j == 9) {
+                    plansza[i][j] = '#';
+                    j++;
+                } else {
+                    plansza[i][j] = ' ';
+                    j++;
+                }
+            }
+        } else if (i == 5) {
+            j = 0;
+            while (j < 10) {
+                plansza[i][j] = '#';
+                j++;
             }
         } else {
             j = 0;
@@ -38,30 +83,7 @@ void generowanie_planszy()
         }
     }
 
-    for (i = 1; i < 5; i++) {
-        for (j = 1; j < 8; j++) {
-            znak = losowanie_znaku();
-
-            switch (znak) {
-                case 0:
-                    plansza[i][j] = ' ';
-                    break;
-                
-                case 1:
-                    if (plansza[i][j - 1] == ' ' && plansza[i][j + 1] == ' ' && plansza[i - 1][j] == '#' && plansza[i + 1][j] == ' ') {
-                        plansza[i][j] = '#';
-                    } else if (plansza[i][j - 1] == '#' && plansza[i][j + 1] == ' ' && plansza[i - 1][j] == ' ' && plansza[i + 1][j] == ' ') {
-                        plansza[i][j] = '#';
-                    } else if (plansza[i][j - 1] == '#' && plansza[i][j + 1] == ' ' && plansza[i - 1][j] == '#' && plansza[i - 1][j - 1] == ' ' && plansza[i + 1][j] == ' ') {
-                        plansza[i][j] = '#';
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    }
+    losowanie_wydarzen(plansza);
 
     for (i = 0; i < 6; i++) {
        for (j = 0; j < 10; j++) {
@@ -71,11 +93,19 @@ void generowanie_planszy()
        cout << "\n";
     }
 }
-int losowanie_znaku()
+void losowanie_wydarzen(char plansza[][10])
 {
-    int znak;
+    int wydarzenia, x, y, i, j;
+    char ogien = 'F', wybuch = '_', dym = 'S';
 
-    znak = (rand() % 2) + 0;
+    wydarzenia = (rand() % 5) + 1;
 
-    return znak;
+    while (wydarzenia > 0) {
+        x = (rand() % 5) + 0;
+        y = (rand() % 9) + 0;
+
+        plansza[x][y] = ogien;
+
+        wydarzenia--;
+    }
 }
