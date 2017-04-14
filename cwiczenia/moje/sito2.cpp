@@ -15,7 +15,7 @@ int main()
     cout << "Zakres poszukiwan: od 0 do\n";
     cin >> rozmiar;
 
-    if (rozmiar <= 0) {
+    if (rozmiar <= 1) {
         cout << "Liczba pierwsza, to liczba naturalna wieksza od 1, ktora posiada dwa dzielniki naturalne!\n";
     } else {
         liczby = new int[rozmiar + 1];
@@ -57,14 +57,15 @@ void wykreslanie_liczb(int *liczby, int rozmiar)
         }
     }
 }
-    
 void wyswietlenie_wartosci(int *liczby, int rozmiar)
 {
     int i;
 
+    cout << "Liczby pierwsze to:\n";
+
     for (i = 0; i < rozmiar + 1; i++) {
         if (liczby[i] > 1) {
-            cout << "Wartosc w tablicy " << liczby[i] << "\n";
+            cout << liczby[i] << "\n";
         }
     }
 }
