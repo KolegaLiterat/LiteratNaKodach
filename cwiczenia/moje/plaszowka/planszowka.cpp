@@ -1,10 +1,13 @@
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 using namespace std;
 
 void generowanie_planszy();
+void wyswietlenie_planszy(char plansza[][10]);
 void losowanie_wydarzen(char plansza[][10]);
+void tura(char plansza[][10]);
 
 int main()
 {
@@ -84,19 +87,25 @@ void generowanie_planszy()
     }
 
     losowanie_wydarzen(plansza);
+    tura(plansza);
+}
+void wyswietlenie_planszy(char plansza[][10])
+{
+    int i, j;
 
     for (i = 0; i < 6; i++) {
-       for (j = 0; j < 10; j++) {
-           cout << plansza[i][j];
-       }
-
+        for (j = 0; j < 10; j++) {
+            cout << plansza[i][j];
+        }
        cout << "\n";
     }
 }
 void losowanie_wydarzen(char plansza[][10])
 {
-    int wydarzenia, x, y, i, j;
-    char ogien = 'F', wybuch = '_', dym = 'S';
+    int wydarzenia, x, y;
+    char ogien = 'F';
+
+    srand(time(NULL));
 
     wydarzenia = (rand() % 5) + 1;
 
@@ -108,4 +117,39 @@ void losowanie_wydarzen(char plansza[][10])
 
         wydarzenia--;
     }
+
+    wyswietlenie_planszy(plansza);
+}
+void tura(char plansza[][10])
+{
+    static int tura = 1;
+    int i, j;
+    char dym = 's', ogien = 'F', ponownie;
+
+    if (tura % 2 = 1) {
+        for (i = 0; i < 6; i++) {
+            for (j = 0; j < 10; j++) {
+                if (plansza[i][j] == ogien) {
+                    plansza[i - 1][j] = dym;
+                    plansza[i + 1][j] = dym;
+                    plansza[i][j + 1] = dym;
+                    plansza[i][j + 1] = dym;
+                } else if (plansza[i][j] == ogien && i == 0) {
+                
+                }
+            }
+        }
+    }
+
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 10; j++) {
+            if (plansza[i][j] == ogien) {
+                plansza[i][j + 1] = dym;
+            //} else if (plansza[i][j] == dym) {
+            //    plansza[i][j] = ogien;
+            }
+        }
+    }
+
+    wyswietlenie_planszy(plansza);
 }
