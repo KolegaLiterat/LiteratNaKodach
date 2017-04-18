@@ -135,7 +135,29 @@ void tura(char plansza[][10])
                     plansza[i][j + 1] = dym;
                     plansza[i][j + 1] = dym;
                 } else if (plansza[i][j] == ogien && i == 0) {
-                
+                    if (j == 0) {
+                        plansza[i + 1][j] = dym;
+                        plansza[i][j + 1] = dym;
+                    } else if (j == 9) {
+                        plansza[i + 1][j] = dym;
+                        plansza[i][j - 1] = dym;
+                    } else {
+                        plansza[i + 1][j] = dym;
+                        plansza[i][j + 1] = dym;
+                        plansza[i][j - 1] = dym;
+                    }
+                } else if (plansza[i][j] == ogien && i == 5) {
+                    if (j == 0) {
+                        plansza[i - 1][j] = dym;
+                        plansza[i][j + 1] = dym;
+                    } else if (j == 9) {
+                        plansza[i - 1][j] = dym;
+                        plansza[i][j - 1] = dym;
+                    } else {
+                        plansza[i - 1][j] = dym;
+                        plansza[i][j + 1] = dym;
+                        plansza[i][j - 1] = dym;
+                    }
                 }
             }
         }
