@@ -23,17 +23,16 @@ void Plansza::wyswietl_plansze()
 //private
 void Plansza::stworz_plansze()
 {
-	char puste = ' ', pion = '|', poziom = '-';
     int i, j;
 
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
             if (i % 2 == 0 && j % 2 == 0) {
-                Plansza::plansza[i][j] = puste;
+                Plansza::plansza[i][j] = Plansza::puste;
             } else if (i % 2 == 0 && j % 2 == 1) {
-                Plansza::plansza[i][j] = pion;
+                Plansza::plansza[i][j] = Plansza::pion;
             } else {
-                Plansza::plansza[i][j] = poziom;
+                Plansza::plansza[i][j] = Plansza::poziom;
             }
         }
     }

@@ -13,5 +13,6 @@ class Gracz
 
     void podaj_imiona();
     void podsumowanie_gry();
+    void ruch();
 };
 #endif

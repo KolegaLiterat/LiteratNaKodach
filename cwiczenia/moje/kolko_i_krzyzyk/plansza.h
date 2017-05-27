@@ -11,6 +11,7 @@ class Plansza
     
     private:
 
+    char puste = ' ', poziom = '-', pion = '|';
     void stworz_plansze();
 };
 #endif
