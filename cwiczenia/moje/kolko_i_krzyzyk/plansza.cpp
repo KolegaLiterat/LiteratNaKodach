@@ -1,22 +1,27 @@
+//pliki
 #include "plansza.h"
+//biblioteki
 #include <cstdlib>
 #include <iostream>
 
 using namespace std;
 
 //public
-void Plansza::wyswietl_plansze(char plansza[][5])
+void Plansza::wyswietl_plansze()
 {
 	int i, j;
 
+    Plansza::stworz_plansze();
+
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            cout << plansza[i][j];
+            cout << Plansza::plansza[i][j];
         }
         cout << "\n";
     }
 }
-void Plansza::stworz_plansze(char plansza[][5])
+//private
+void Plansza::stworz_plansze()
 {
 	char puste = ' ', pion = '|', poziom = '-';
     int i, j;
@@ -24,11 +29,11 @@ void Plansza::stworz_plansze(char plansza[][5])
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
             if (i % 2 == 0 && j % 2 == 0) {
-                plansza[i][j] = puste;
+                Plansza::plansza[i][j] = puste;
             } else if (i % 2 == 0 && j % 2 == 1) {
-                plansza[i][j] = pion;
+                Plansza::plansza[i][j] = pion;
             } else {
-                plansza[i][j] = poziom;
+                Plansza::plansza[i][j] = poziom;
             }
         }
     }

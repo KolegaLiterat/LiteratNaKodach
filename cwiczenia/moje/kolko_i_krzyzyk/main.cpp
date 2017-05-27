@@ -1,4 +1,7 @@
+//pliki
 #include "plansza.h"
+#include "gracz.h"
+//biblioteki
 #include <cstdlib>
 #include <iostream>
 
@@ -7,10 +10,12 @@ using namespace std;
 
 int main()
 {
-   char plansza[5][5];
    Plansza przestrzen;
+   Gracz imiona;
 
-   przestrzen.stworz_plansze(plansza);
-   przestrzen.wyswietl_plansze(plansza);
+   imiona.podaj_imiona();
+   imiona.podsumowanie_gry();
+
+   przestrzen.wyswietl_plansze();
 
 }

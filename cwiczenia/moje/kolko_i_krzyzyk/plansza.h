@@ -5,7 +5,12 @@ class Plansza
 {
 	public:
 
-    void wyswietl_plansze(char plansza[][5]);
-    void stworz_plansze(char plansza[][5]);
+    char plansza[5][5];
+
+    void wyswietl_plansze();
+    
+    private:
+
+    void stworz_plansze();
 };
 #endif
