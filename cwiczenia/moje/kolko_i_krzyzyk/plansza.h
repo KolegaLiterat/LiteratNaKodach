@@ -7,9 +7,9 @@ class Plansza
 
     char plansza[5][5];
 
-    void wyswietl_plansze();
+    void wyswietl_plansze(int wywolanie);
     
-    private:
+    protected:
 
     char puste = ' ', poziom = '-', pion = '|';
     void stworz_plansze();

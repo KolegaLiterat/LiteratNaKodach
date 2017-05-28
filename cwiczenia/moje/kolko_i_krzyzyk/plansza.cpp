@@ -7,17 +7,19 @@
 using namespace std;
 
 //public
-void Plansza::wyswietl_plansze()
+void Plansza::wyswietl_plansze(int wywolanie)
 {
 	int i, j;
 
-    Plansza::stworz_plansze();
-
-    for (i = 0; i < 5; i++) {
-        for (j = 0; j < 5; j++) {
-            cout << Plansza::plansza[i][j];
+    if (wywolanie == 1) {
+        Plansza::stworz_plansze();
+    } else {
+        for (i = 0; i < 5; i++) {
+            for (j = 0; j < 5; j++) {
+                cout << Plansza::plansza[i][j];
+            }
+            cout << "\n";
         }
-        cout << "\n";
     }
 }
 //private

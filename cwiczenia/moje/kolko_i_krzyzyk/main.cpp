@@ -10,12 +10,12 @@ using namespace std;
 
 int main()
 {
-   Plansza przestrzen;
    Gracz gra;
 
+   gra.wyswietl_plansze(1);
    gra.podaj_imiona();
+   gra.ruch(1);
+   gra.ruch(2);
+   
    gra.podsumowanie_gry();
-
-   przestrzen.wyswietl_plansze();
-
 }
