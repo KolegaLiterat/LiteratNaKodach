@@ -50,13 +50,19 @@ void Gracz::ruch(int ktory_gracz)
         Gracz::ruch(ktory_gracz);
     }
 }
-bool sprawdz_wygrana(int ktory_gracz)
+bool Gracz::sprawdz_wygrana(int ktory_gracz)
 {
     int i, j;
 
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            if (Plansza::plansza[i][j] )
+            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
+                cout << "WYGRANA!!!!\n";
+                break;
+            } else if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
+                cout << "WYGRANA!!!!'n";
+                break;
+            }
         }
     }
 }
