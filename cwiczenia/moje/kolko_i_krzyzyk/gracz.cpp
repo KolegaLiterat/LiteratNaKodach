@@ -37,11 +37,11 @@ void Gracz::ruch(int ktory_gracz)
             if (ktory_gracz == 1) {
                 Plansza::plansza[x - 1][y - 1] = Gracz::krzyzyk;
                 Plansza::wyswietl_plansze(2);
-                Gracz::sprawdz_wygrana(1);
+                Gracz::sprawdz_wygrana(ktory_gracz);
             } else {
                 Plansza::plansza[x - 1][y - 1] = Gracz::kolko;
                 Plansza::wyswietl_plansze(2);
-                Gracz::sprawdz_wygrana(2);
+                Gracz::sprawdz_wygrana(ktory_gracz);
             }
         } else {
             Gracz::ruch(ktory_gracz);
@@ -56,18 +56,16 @@ bool Gracz::sprawdz_wygrana(int ktory_gracz)
 
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
-                cout << "WYGRANA!!!!\n";
+            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] {
+                return true;
                 break;
-            } else if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
-                cout << "WYGRANA!!!!'n";
-                break;
+            }
             }
         }
     }
 }
 //private
-bool Gracz::sprwadz_miejsce(int x, int y) 
+bool Gracz::sprwadz_miejsce(int x, int y)
 {
     if (Plansza::plansza[x - 1][y - 1] == Plansza::puste) {
         return true;

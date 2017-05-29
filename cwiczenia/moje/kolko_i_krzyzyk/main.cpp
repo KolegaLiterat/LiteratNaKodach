@@ -17,8 +17,8 @@ int main()
    gra.podaj_imiona();
 
    for (i = 0; i < 9; i++) {
-        gra.ruch(1);
-        gra.ruch(2);
+            gra.ruch(1);
+            gra.ruch(2);
    }
    
    gra.podsumowanie_gry();

@@ -17,7 +17,6 @@ class Gracz: public Plansza
     void podaj_imiona();
     void podsumowanie_gry();
     void ruch(int ktory_gracz);
-    
     bool sprawdz_wygrana(int ktory_gracz);
 
     private: 
