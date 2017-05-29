@@ -12,6 +12,9 @@ class Plansza
     protected:
 
     char puste = ' ', poziom = '-', pion = '|';
+    
+    private:
+    
     void stworz_plansze();
 };
 #endif
