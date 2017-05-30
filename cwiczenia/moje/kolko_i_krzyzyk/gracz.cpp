@@ -52,14 +52,16 @@ void Gracz::ruch(int ktory_gracz)
 }
 bool Gracz::sprawdz_wygrana(int ktory_gracz)
 {
-    int i, j;
-
-    for (i = 0; i < 5; i++) {
-        for (j = 0; j < 5; j++) {
-            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] {
+    if (Gracz::sprawdz_wiersze(ktory_gracz) == true) {
+        return true;
+    } else {
+        if (Gracz::sprawdz_kolumny(ktory_gracz) == true) {
+            return true;
+        } else {
+            if (Gracz::sprawdz_przekatne(ktory_gracz) == true) {
                 return true;
-                break;
-            }
+            } else {
+                return false;
             }
         }
     }
@@ -81,6 +83,80 @@ bool Gracz::sprawdz_zakres(int x, int y)
         return false;
     } else {
         return true;
+    }
+}
+bool Gracz::sprwadz_wiersze(int ktory_gracz)
+{
+    int i = 0, j = 0
+
+    if (ktory_gracz == 1) {
+        while (i > 5) {
+            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
+                return true;
+                break;
+            } else {
+                i =+ 2;
+                return false;
+            }
+        }
+    } else {
+        while (i > 5) {
+            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
+                return true;
+                break;
+            } else {
+                i =+ 2;
+                return false;
+            }
+        }
+    }
+}
+bool Gracz::sprawdz_kolumny(int ktory_gracz)
+{
+    int i = 0, j = 0;
+
+    if (ktory_gracz == 1) {
+        while (j > 5) {
+            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
+                return true;
+                break;
+            } else {
+                i =+ 2;
+                return false;
+            }
+        }
+    } else {
+        while (j > 5) {
+            if (Plansza::plansza[i][j] == Gracz::kolko && Plansza::plansza[i + 2][j] == Gracz::kolko && Plansza::plansza[i + 4][j] == Gracz::kolko) {
+                return true;
+                break;
+            } else {
+                i =+ 2;
+                return false;
+            }
+        }
+    }
+}
+bool Gracz::sprawdz_przekatne(int ktory_gracz)
+{
+    int i = 0, j = 0;
+
+    if (ktory_gracz == 1) {
+        if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j + 2] == Gracz::krzyzyk && Plansza::plansza[i + 4][j + 4] == Gracz::krzyzyk) {
+            return true;
+        } else if (Plansza[i][j + 4] == Gracz::krzyzyk && Plnasza::plansza[i + 2][j + 2] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        if (Plansza::plansza[i][j] == Gracz::kolko && Plansza::plansza[i + 2][j + 2] == Gracz::kolko && Plansza::plansza[i + 4][j + 4] == Gracz::kolko) {
+            return true;
+        } else if (Plansza[i][j + 4] == Gracz::kolko && Plnasza::plansza[i + 2][j + 2] == Gracz::kolko && Plansza::plansza[i + 4][j] == Gracz::kolko) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 void Gracz::podsumowanie_gry()
