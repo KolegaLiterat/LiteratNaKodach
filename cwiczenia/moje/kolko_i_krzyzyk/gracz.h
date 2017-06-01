@@ -23,7 +23,7 @@ class Gracz: public Plansza
     
     bool sprwadz_miejsce(int x, int y);
     bool sprawdz_zakres(int x, int y);
-    bool sprwadz_wiersze(int ktory_gracz);
+    bool sprawdz_wiersze(int ktory_gracz);
     bool sprawdz_kolumny(int ktory_gracz);
     bool sprawdz_przekatne(int ktory_gracz);
 };

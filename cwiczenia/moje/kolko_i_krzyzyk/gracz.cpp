@@ -53,12 +53,15 @@ void Gracz::ruch(int ktory_gracz)
 bool Gracz::sprawdz_wygrana(int ktory_gracz)
 {
     if (Gracz::sprawdz_wiersze(ktory_gracz) == true) {
+        cout << "Wiersze!\n";
         return true;
     } else {
         if (Gracz::sprawdz_kolumny(ktory_gracz) == true) {
+            cout << "KOLUMNY!\n";
             return true;
         } else {
             if (Gracz::sprawdz_przekatne(ktory_gracz) == true) {
+                cout << "PRZEKATNE!\n";
                 return true;
             } else {
                 return false;
@@ -85,16 +88,18 @@ bool Gracz::sprawdz_zakres(int x, int y)
         return true;
     }
 }
-bool Gracz::sprwadz_wiersze(int ktory_gracz)
+bool Gracz::sprawdz_wiersze(int ktory_gracz)
 {
-    int i = 0, j = 0
+    int i = 0, j = 0;
 
+    cout << "JEST!1\n";
     if (ktory_gracz == 1) {
         while (i > 5) {
             if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
+                cout << "OK!\nOK!\nOK!\nOK!\nOK!\n";
                 return true;
-                break;
             } else {
+                cout << "JEST2\n";
                 i =+ 2;
                 return false;
             }
@@ -102,6 +107,7 @@ bool Gracz::sprwadz_wiersze(int ktory_gracz)
     } else {
         while (i > 5) {
             if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
+                cout << "OK!OK!\nOK!\nOK!\nOK!\n";
                 return true;
                 break;
             } else {
@@ -118,6 +124,7 @@ bool Gracz::sprawdz_kolumny(int ktory_gracz)
     if (ktory_gracz == 1) {
         while (j > 5) {
             if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
+                cout << "OK!OK!\nOK!\nOK!\nOK!\n";
                 return true;
                 break;
             } else {
@@ -128,6 +135,7 @@ bool Gracz::sprawdz_kolumny(int ktory_gracz)
     } else {
         while (j > 5) {
             if (Plansza::plansza[i][j] == Gracz::kolko && Plansza::plansza[i + 2][j] == Gracz::kolko && Plansza::plansza[i + 4][j] == Gracz::kolko) {
+                cout << "OK!OK!\nOK!\nOK!\n";
                 return true;
                 break;
             } else {
@@ -143,8 +151,10 @@ bool Gracz::sprawdz_przekatne(int ktory_gracz)
 
     if (ktory_gracz == 1) {
         if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i + 2][j + 2] == Gracz::krzyzyk && Plansza::plansza[i + 4][j + 4] == Gracz::krzyzyk) {
+            cout << "OK!";
             return true;
-        } else if (Plansza[i][j + 4] == Gracz::krzyzyk && Plnasza::plansza[i + 2][j + 2] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
+        } else if (Plansza::plansza[i][j + 4] == Gracz::krzyzyk && Plansza::plansza[i + 2][j + 2] == Gracz::krzyzyk && Plansza::plansza[i + 4][j] == Gracz::krzyzyk) {
+            cout << "OK!";
             return true;
         } else {
             return false;
@@ -152,7 +162,7 @@ bool Gracz::sprawdz_przekatne(int ktory_gracz)
     } else {
         if (Plansza::plansza[i][j] == Gracz::kolko && Plansza::plansza[i + 2][j + 2] == Gracz::kolko && Plansza::plansza[i + 4][j + 4] == Gracz::kolko) {
             return true;
-        } else if (Plansza[i][j + 4] == Gracz::kolko && Plnasza::plansza[i + 2][j + 2] == Gracz::kolko && Plansza::plansza[i + 4][j] == Gracz::kolko) {
+        } else if (Plansza::plansza[i][j + 4] == Gracz::kolko && Plansza::plansza[i + 2][j + 2] == Gracz::kolko && Plansza::plansza[i + 4][j] == Gracz::kolko) {
             return true;
         } else {
             return false;
