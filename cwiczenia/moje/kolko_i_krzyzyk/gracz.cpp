@@ -8,7 +8,7 @@
 using namespace std;
 
 //public
-void Gracz::podaj_imiona()
+void Gracz::podaj_imiona(int ktory_gracz)
 {
     if (ktory_gracz == 1) {
         cout << "Podaj nazwe pierwszego gracza: ";
@@ -16,7 +16,7 @@ void Gracz::podaj_imiona()
 
         if (Gracz::sprawdz_nazwe(ktory_gracz) == false) {
             cout << "BLAD! NIE MOZESZ PODAC PUSTEJ NAZWY! Wpisz imie ponownie!\n";
-
+            
             Gracz::podaj_imiona(ktory_gracz);
         }
     } else {
@@ -24,7 +24,8 @@ void Gracz::podaj_imiona()
         getline(cin, Gracz::gracz_2);
 
         if (Gracz::sprawdz_nazwe(ktory_gracz) == false) {
-            out << "BLAD! NIE MOZESZ PODAC PUSTEJ NAZWY! Wpisz imie ponownie!\n"
+            cout << "BLAD! NIE MOZESZ PODAC PUSTEJ NAZWY! Wpisz imie ponownie!\n";
+            
             Gracz::podaj_imiona(ktory_gracz);
         }
     }
@@ -46,12 +47,14 @@ void Gracz::ruch(int ktory_gracz)
     }
 
     if (Gracz::sprawdz_zakres(x, y) == true) {
-        if (Gracz::sprwadz_miejsce(x, y) == true) {
+        if (Gracz::sprawdz_miejsce(x, y) == true) {
             if (ktory_gracz == 1) {
                 Plansza::plansza[x - 1][y - 1] = Gracz::krzyzyk;
+                
                 Plansza::wyswietl_plansze(2);
             } else {
                 Plansza::plansza[x - 1][y - 1] = Gracz::kolko;
+                
                 Plansza::wyswietl_plansze(2);
             }
         } else {
@@ -74,6 +77,24 @@ bool Gracz::sprawdz_wygrana(int ktory_gracz)
     }
 }
 //private
+bool Gracz::sprawdz_puste()
+{
+    int i, j, puste = 0;
+
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            if (Plansza::plansza[i][j] == Plansza::puste) {
+                puste++;
+            }
+        }
+    }
+
+    if (puste > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 bool Gracz::sprawdz_nazwe(int ktory_gracz)
 {
     if (ktory_gracz == 1) {
@@ -90,7 +111,7 @@ bool Gracz::sprawdz_nazwe(int ktory_gracz)
         }
     }
 }
-bool Gracz::sprwadz_miejsce(int x, int y)
+bool Gracz::sprawdz_miejsce(int x, int y)
 {
     if (Plansza::plansza[x - 1][y - 1] == Plansza::puste) {
         return true;
@@ -123,7 +144,7 @@ bool Gracz::sprawdz_wiersze(int ktory_gracz)
         }
     } else {
         while (i < 5) {
-            if (Plansza::plansza[i][j] == Gracz::krzyzyk && Plansza::plansza[i][j + 2] == Gracz::krzyzyk && Plansza::plansza[i][j + 4] == Gracz::krzyzyk) {
+            if (Plansza::plansza[i][j] == Gracz::kolko && Plansza::plansza[i][j + 2] == Gracz::kolko && Plansza::plansza[i][j + 4] == Gracz::kolko) {
                 return true;
                 break;
             } else {
@@ -185,11 +206,9 @@ void Gracz::podsumowanie_gry(int ktory_gracz)
 {
     if (ktory_gracz == 1) {
         cout << "Pojedynek wygral " << Gracz::gracz_1 << " GRATULACJE!\n";
-    } else if (ktory_gracz == 1) {
+    } else if (ktory_gracz == 2) {
         cout << "Pojedynek wygral " << Gracz::gracz_2 << " GRATULACJE!\n";
     } else {
         cout << "Pojedynek zakonczony remisem!\n";
     }
 };
-
-
