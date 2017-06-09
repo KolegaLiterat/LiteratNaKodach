@@ -1,9 +1,9 @@
 #ifndef GRACZ_H
 #define GRACZ_H
-//pliki
-#include "plansza.h"
 //bliblioteki
 #include <string>
+//pliki
+#include "plansza.h"
 
 using namespace std;
 
@@ -21,10 +21,11 @@ class Gracz : public Plansza
     bool sprawdz_puste();
 
     private: 
-    
+
+    int oblicz_miejsce(int &x, int &y);
     bool sprawdz_nazwe(int ktory_gracz);
-    bool sprawdz_miejsce(int x, int y);
-    bool sprawdz_zakres(int x, int y);
+    bool sprawdz_miejsce(int &x, int &y);
+    bool sprawdz_zakres(int &x, int &y);
     bool sprawdz_wiersze(int ktory_gracz);
     bool sprawdz_kolumny(int ktory_gracz);
     bool sprawdz_przekatne(int ktory_gracz);

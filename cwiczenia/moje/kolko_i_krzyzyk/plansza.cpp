@@ -38,4 +38,4 @@ void Plansza::stworz_plansze()
             }
         }
     }
-};
+}
