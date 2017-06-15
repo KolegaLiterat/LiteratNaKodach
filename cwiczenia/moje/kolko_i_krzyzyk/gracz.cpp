@@ -1,5 +1,7 @@
 //pliki
 #include "gracz.h"
+#include "plansza.h"
+#include "wspolrzedne.h"
 //biblioteki
 #include <cstdlib>
 #include <iostream>
@@ -33,6 +35,7 @@ void Gracz::podaj_imiona(int ktory_gracz)
 void Gracz::ruch(int ktory_gracz)
 {
     int x, y;
+    Wspolrzedne wiersz, kolumna;
 
     if (ktory_gracz == 1) {
         cout << Gracz::gracz_1 << "(" << Gracz::krzyzyk << ")\nPodaj rzad, w ktorym ma zostac postawiony krzyzyk:\n";
@@ -46,11 +49,12 @@ void Gracz::ruch(int ktory_gracz)
         cin >> y;
     }
 
-    if (Gracz::sprawdz_zakres(x,y) == true) {
+    if (Gracz::sprawdz_zakres(x, y) == true) {
 
-        Gracz::oblicz_miejsce(x,y);
+        x = wiersz.oblicz_miejsce(x, 'x');
+        y = kolumna.oblicz_miejsce(y, 'y');
 
-        if (Gracz::sprawdz_miejsce(x,y) == true) {
+        if (Gracz::sprawdz_miejsce(x, y) == true) {
             if (ktory_gracz == 1) {
 
                 Plansza::plansza[x][y] = Gracz::krzyzyk;
@@ -99,37 +103,23 @@ bool Gracz::sprawdz_puste()
     }
 }
 //private
-int Gracz::oblicz_miejsce(int &x, int &y)
+bool Gracz::sprawdz_zakres(int &x, int &y)
 {
-    switch (x) {
-        case 1:
-            x -= 1;
-            break;
-        case 2:
-            x = x;
-            break;
-        case 3:
-            x += 1;
-            break;
-        default:
-            break;
+    if (x < 1 || x > 3 || y < 1 || y > 3) {
+        cout << "BLAD! Jestes poza zakresem! Minimanle wartosci to 1 oraz 3 zarowno dla rzedow, jak i kolumn.\n";
+        return false;
+    } else {
+        return true;
     }
-
-    switch (y) {
-        case 1:
-            y -= 1;
-            break;
-        case 2:
-            y = y;
-            break;
-        case 3:
-            y += 1;
-            break;
-        default:
-            break;
+}
+bool Gracz::sprawdz_miejsce(int &x, int &y)
+{
+    if (Plansza::plansza[x][y] == Plansza::puste) {
+        return true;
+    } else {
+        cout << "BLAD! W tym miejscu jest juz " << Plansza::plansza[x][y] << " Dokonaj wyboru ponownie!\n";
+        return false;
     }
-
-    return x, y;
 }
 bool Gracz::sprawdz_nazwe(int ktory_gracz)
 {
@@ -145,24 +135,6 @@ bool Gracz::sprawdz_nazwe(int ktory_gracz)
         } else {
             return true;
         }
-    }
-}
-bool Gracz::sprawdz_miejsce(int &x, int &y)
-{
-    if (Plansza::plansza[x][y] == Plansza::puste) {
-        return true;
-    } else {
-        cout << "BLAD! W tym miejscu jest juz " << Plansza::plansza[x][y] << " Dokonaj wyboru ponownie!\n";
-        return false;
-    }
-}
-bool Gracz::sprawdz_zakres(int &x, int &y)
-{
-    if (x < 1 || x > 3 || y < 1 || y > 3) {
-        cout << "BLAD! Jestes poza zakresem! Minimanle wartosci to 1 oraz 3 zarowno dla rzedow, jak i kolumn.\n";
-        return false;
-    } else {
-        return true;
     }
 }
 bool Gracz::sprawdz_wiersze(int ktory_gracz)

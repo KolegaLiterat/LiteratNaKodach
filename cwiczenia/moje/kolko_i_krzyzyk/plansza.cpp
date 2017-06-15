@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//public
+//protected
 void Plansza::wyswietl_plansze(int wywolanie)
 {
 	int i, j;

@@ -20,12 +20,11 @@ class Gracz : public Plansza
     bool sprawdz_wygrana(int ktory_gracz);
     bool sprawdz_puste();
 
-    private: 
+    private:
 
-    int oblicz_miejsce(int &x, int &y);
-    bool sprawdz_nazwe(int ktory_gracz);
-    bool sprawdz_miejsce(int &x, int &y);
     bool sprawdz_zakres(int &x, int &y);
+    bool sprawdz_miejsce(int &x, int &y);
+    bool sprawdz_nazwe(int ktory_gracz);
     bool sprawdz_wiersze(int ktory_gracz);
     bool sprawdz_kolumny(int ktory_gracz);
     bool sprawdz_przekatne(int ktory_gracz);

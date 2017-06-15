@@ -1,6 +1,7 @@
 //pliki
 #include "plansza.h"
 #include "gracz.h"
+#include "wspolrzedne.h"
 //biblioteki
 #include <cstdlib>
 #include <iostream>

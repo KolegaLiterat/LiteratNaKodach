@@ -6,7 +6,6 @@ class Plansza
 	public:
 
     char plansza[5][5];
-
     void wyswietl_plansze(int wywolanie);
     
     protected:
@@ -14,7 +13,7 @@ class Plansza
     char puste = ' ', poziom = '-', pion = '|';
     
     private:
-    
+
     void stworz_plansze();
 };
 #endif
