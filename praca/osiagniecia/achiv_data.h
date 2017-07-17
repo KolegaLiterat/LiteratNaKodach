@@ -10,9 +10,8 @@ class Achiv_data
 {
     public:
     
-    string name, progress, progress_name;
-    int numeric_data[3];
-    char border = '"';
+    string name = "Pusty", progress = "Pusty", progress_name = "Pusty";
+    int numeric_data[3] = {0, 0, 0};
     
     protected:
 
