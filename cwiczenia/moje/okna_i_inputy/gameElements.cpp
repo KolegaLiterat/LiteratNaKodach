@@ -4,7 +4,7 @@
 
 void gameElements::init_game()
 {
-    WINDOW *windows[2]; //0 == zewnętrzne; 1 == wewnętrzne;
+    WINDOW *windows[2]; //1 == zewnętrzne; 0 == wewnętrzne;
 
     initscr();
     cbreak();
