@@ -9,6 +9,16 @@ class gameElements : public windowsControl
 {
     public:
     
+    char actor = 'A', empty = ' ';
+    
     void init_game();
+    void game_loop(WINDOW *outside, WINDOW *gamewindow);
+
+    private:
+
+    void input();
+    void update();
+    void render(WINDOW *gamewindow);
+
 };
 #endif

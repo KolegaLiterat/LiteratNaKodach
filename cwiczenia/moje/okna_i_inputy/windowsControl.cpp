@@ -17,7 +17,7 @@ WINDOW *windowsControl::create_new_window(int width, int height, int startx, int
 
         return newwindow;
     } else {
-        box(newwindow, 0, 0);
+        //box(newwindow, 0, 0); //DEBUG
         return newwindow;
     }
 }
