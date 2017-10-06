@@ -1,6 +1,9 @@
 #include <cstdlib>
 #include <iostream>
 #include <SDL.h>
+#include <SDL.h>
+
+using namespace std;
 
 //wymiary ekranu
 const int SCREEN_WIDTH = 800;
@@ -20,17 +23,34 @@ SDL_Window *gWindow = NULL;
 SDL_Surface *gScreenSurface = NULL;
 SDL_Surface *gFirstWindow = NULL;
 
-int main()
+int main(int argc, char *argv[])
 {
+    if (!init_sdl()) {
+        cout << "Blad inicjalizacji SDL!\n";
+    } else {
+        if (!load_graphic()) {
+            cout << "Blad wczytywania grafiki!\n";
+        } else {
+            //wrzucenie obrazka na ekran
+            SDL_BlitSurface(gFirstWindow, NULL, gScreenSurface, NULL);
+            //aktualizacja okna
+            SDL_UpdateWindowSurface(gWindow);
+            //czekaj 10 sekund
+            SDL_Delay(10000);
+        }
+    }
+
+    //czyszczenie pamieci
+    close_sdl();
 }
 
 bool init_sdl()
 {
     //flaga
-    bool success;
+    bool success = true;
 
     //inicjalizacja SDL
-    
+
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         cout << "SDL nie zostalo poprawnie zaladowane! BLAD: " << SDL_GetError() << "\n";
         success = false;
@@ -49,4 +69,30 @@ bool init_sdl()
         return success;
     }
 
+}
+bool load_graphic()
+{
+    //flaga
+    bool success = true;
+
+    //wczytanie obrazka
+    gFirstWindow = SDL_LoadBMP("graphic/StartScreen.bmp");
+
+    if(gFirstWindow == NULL) {
+        cout << "Obrazek nie został poprawnie wczytany! BLAD: " << SDL_GetError() << "\n";
+        success = false;
+    }
+
+    return success;
+}
+void close_sdl()
+{
+    //funkcja czyszczaca pamiec
+    SDL_FreeSurface(gFirstWindow);
+    gFirstWindow = NULL;
+    SDL_DestroyWindow(gWindow);
+    gWindow = NULL;
+
+    //Wylaczanie SDL
+    SDL_Quit();
 }

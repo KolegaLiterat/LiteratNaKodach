@@ -11,7 +11,7 @@ class Achiv_data
     public:
     
     string name = "Pusty", progress = "Pusty", progress_name = "Pusty";
-    int numeric_data[3] = {0, 0, 0};
+    char numeric_data[3] = {0, 0, 0};
     
     protected:
 
