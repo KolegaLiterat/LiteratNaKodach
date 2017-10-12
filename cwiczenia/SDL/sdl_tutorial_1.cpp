@@ -6,8 +6,8 @@
 using namespace std;
 
 //wymiary ekranu
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
+const int SCREEN_WIDTH = 1440;
+const int SCREEN_HEIGHT = 720;
 
 //inicjalizacja
 bool init_sdl();
@@ -25,6 +25,10 @@ SDL_Surface *gFirstWindow = NULL;
 
 int main(int argc, char *argv[])
 {
+    //flaga do zamykania
+    bool quit = false;
+    SDL_Event eventq;
+
     if (!init_sdl()) {
         cout << "Blad inicjalizacji SDL!\n";
     } else {
@@ -35,11 +39,18 @@ int main(int argc, char *argv[])
             SDL_BlitSurface(gFirstWindow, NULL, gScreenSurface, NULL);
             //aktualizacja okna
             SDL_UpdateWindowSurface(gWindow);
-            //czekaj 10 sekund
-            SDL_Delay(10000);
+            //kontrola zamykania okna
+            while (!quit) {
+                while (SDL_PollEvent(&eventq) !=0) {
+                    if (eventq.type == SDL_QUIT) {
+                        quit = true;
+                    } else {
+                        
+                    }
+                }
+            }
         }
     }
-
     //czyszczenie pamieci
     close_sdl();
 }
