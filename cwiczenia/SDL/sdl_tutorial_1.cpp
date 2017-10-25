@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 #include <SDL.h>
-#include <SDL.h>
 
 using namespace std;
 
@@ -44,8 +43,6 @@ int main(int argc, char *argv[])
                 while (SDL_PollEvent(&eventq) !=0) {
                     if (eventq.type == SDL_QUIT) {
                         quit = true;
-                    } else {
-                        
                     }
                 }
             }

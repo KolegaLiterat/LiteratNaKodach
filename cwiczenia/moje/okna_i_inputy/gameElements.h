@@ -10,14 +10,15 @@ class gameElements : public windowsControl
     public:
     
     char actor = 'A', empty = ' ';
+    int movex = 20, movey = 15, movechange;
     
     void init_game();
     void game_loop(WINDOW *outside, WINDOW *gamewindow);
 
     private:
 
-    void input();
-    void update();
+    int input();
+    void update(int &state);
     void render(WINDOW *gamewindow);
 
 };

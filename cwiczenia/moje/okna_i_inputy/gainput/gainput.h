@@ -169,7 +169,7 @@ void DevSetHttp(bool enable);
 #define GAINPUT_VER_GET_MINOR(ver)	(ver & (uint32_t(-1) >> GAINPUT_VER_MAJOR_SHIFT))
 
 
-#include <gainput/GainputAllocator.h>
+#include <GainputAllocator.h>
 #include <gainput/GainputContainers.h>
 #include <gainput/GainputInputState.h>
 #include <gainput/GainputInputDevice.h>
