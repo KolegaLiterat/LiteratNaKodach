@@ -20,8 +20,8 @@ bool close_sdl();
 //SDL service
 SDL_Window gTutorial3 = NULL;
 SDL_Surface gTutorialSurface3 = NULL;
+SDL_Surface gNewSurface = NULL;
 SDL_Surface *new_surface(string path);
-SDL_Surface *loadsurface = NULL;
 
 //main
 int main(int argc, char *argv[])
