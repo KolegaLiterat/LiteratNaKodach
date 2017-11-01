@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     bool quit = false;
     SDL_Event events;
 
-    if (!init_sdl()) {
+    if (!init_sdl()) 
         cout << "Blad inicjalizacji SDL!\n";
     } else {
         if (!load_graphic()) {
