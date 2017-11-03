@@ -107,7 +107,10 @@ bool load_graphic()
 
     if (gNewSurface == NULL) {
         cout << "Blad inicjalizaji PNGa! Kod bledu!" << SDL_GetError() << "\n";
+        success = false;
     }
+
+    return success;
 }
 void close_sdl()
 {
