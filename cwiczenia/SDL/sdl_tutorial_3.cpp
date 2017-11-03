@@ -2,8 +2,8 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 
 //namespace
 using namespace std;
@@ -15,23 +15,44 @@ const int SCREEN_HEIGHT = 720;
 //SDL functions
 bool init_sdl();
 bool load_graphic();
-bool close_sdl();
+void close_sdl();
 
 //SDL service
-SDL_Window gTutorial3 = NULL;
-SDL_Surface gTutorialSurface3 = NULL;
-SDL_Surface gNewSurface = NULL;
+SDL_Window *gTutorial3 = NULL;
+SDL_Surface *gTutorialSurface3 = NULL;
+SDL_Surface *gNewSurface = NULL;
 SDL_Surface *new_surface(string path);
 
 //main
 int main(int argc, char *argv[])
 {
+    bool quit = false;
+    SDL_Event eventclick;
 
+    if (!init_sdl()) {
+        cout << "Blad inicjalizacji SDL!\n";
+    } else {
+        if (!load_graphic()) {
+            cout << "Blad inicjalizacji grafiki!\b";
+        } else {
+            SDL_BlitSurface(gNewSurface, NULL, gTutorialSurface3, NULL);
+            SDL_UpdateWindowSurface(gTutorial3);
+
+            while (!quit) {
+                while (SDL_PollEvent(&eventclick) != 0) {
+                    if (eventclick.type == SDL_QUIT) {
+                        quit = true;
+                    }
+                }
+            }
+        }
+    }
+    close_sdl();
 }
 bool init_sdl()
 {
     //flag
-    bool success = ture;
+    bool success = true;
     
     //init SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -39,7 +60,7 @@ bool init_sdl()
         success = false;
     } else {
         //window create
-        gTutorial3 = SDL_CreateWindow("Ladowanie PNGow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOW);
+        gTutorial3 = SDL_CreateWindow("Ladowanie PNGow", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
         if (gTutorial3 == NULL) {
             cout << "Blad tworzenia okna! Kod bledu " << SDL_GetError() << "\n";
             success = false;
@@ -47,7 +68,7 @@ bool init_sdl()
             //init PNG load
             int imgflag = IMG_INIT_PNG;
 
-            if (!(IMG_init(imgflag) & imgflag)) {
+            if (!(IMG_Init(imgflag) & imgflag)) {
                 cout << "Blad ladowanie obrazu! Kod bledu: " << SDL_GetError() << "\n";
                 success = false;
             } else {
@@ -80,9 +101,20 @@ SDL_Surface *new_surface(string path)
 }
 bool load_graphic()
 {
+    bool success = true;
 
+    gNewSurface = new_surface("graphic/WinScreen.png");
+
+    if (gNewSurface == NULL) {
+        cout << "Blad inicjalizaji PNGa! Kod bledu!" << SDL_GetError() << "\n";
+    }
 }
-bool close_sdl()
+void close_sdl()
 {
+    SDL_FreeSurface(gNewSurface);
+    gNewSurface = NULL;
+    SDL_DestroyWindow(gTutorial3);
+    gTutorial3 = NULL;
 
+    SDL_Quit();
 }
