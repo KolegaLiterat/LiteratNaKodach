@@ -1,4 +1,4 @@
-//libs
+//biblioteki
 #include <cstdlib>
 #include <iostream>
 #include <string>
