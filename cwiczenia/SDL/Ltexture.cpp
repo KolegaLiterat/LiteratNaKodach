@@ -1,4 +1,8 @@
+#include <iostream>
+#include <string>
 #include "Ltexture.h"
+
+using namespace std;
 
 LTexture::LTexture()
 {
