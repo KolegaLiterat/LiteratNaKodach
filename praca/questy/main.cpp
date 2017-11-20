@@ -11,5 +11,5 @@ int main()
     userService input;
 
     file.create_file();
-    input.quest_entry();
+    file.quest_entry();
 }

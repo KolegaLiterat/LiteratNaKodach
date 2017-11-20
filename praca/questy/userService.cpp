@@ -3,12 +3,15 @@
 #include <iostream>
 #include <string>
 #include "userService.h"
+#include "fileManagment.h"
 
 using namespace std;
 
 void userService::quest_entry(int step)
 {
-    int i;
+    int i, copy = 0;
+    string questData[4];
+    fileManagment save_data;
 
     getline(cin, temp);
 
@@ -19,6 +22,12 @@ void userService::quest_entry(int step)
             getline(cin, questData[i]);
         }
     }
+
+    for (i = 0; i < 4; i++) {
+        save_data.save_quest_data(&questData[i], copy, false);
+        copy++;
+    }
+
 }
 string userService::quest_validation(int step)
 {

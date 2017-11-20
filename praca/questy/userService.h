@@ -10,8 +10,8 @@ class userService
 
     public:
 
-    string texts[10] = {"ID:", "Nazwa:", "Autor:", "Opis:"};
-    string questData[5];
+    string texts[4] = {"ID:", "Nazwa:", "Autor:", "Opis:"};
+    char sep = '|';
     string temp;
     bool check;
     void quest_entry(int step = -1);
