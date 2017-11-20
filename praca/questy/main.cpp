@@ -11,5 +11,10 @@ int main()
     userService input;
 
     file.create_file();
-    file.quest_entry();
+
+    if (input.user_action() != true) {
+        cout << "PRZYGOTOWANIE BAZY DO WALIDACJI\n";
+    } else {
+        cout << "KONIEC PRACY! BAZA ZAPISANA W PLIKU!";
+    }
 }

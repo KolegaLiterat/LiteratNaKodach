@@ -7,6 +7,29 @@
 
 using namespace std;
 
+
+bool userService::user_action()
+{
+    bool quite = false;
+    char endWork = 'y';
+    userService getData;
+
+    cout << "MENU";
+
+    while (!quite) {
+        getData.quest_entry();
+
+        cout << "Konczymy?\n[Y] = Tak\n[N] = Nie\n";
+        cin >> endWork;
+
+        if (endWork == 'y' || endWork == 'Y') {
+            quite = true;
+        }
+    }
+
+    return quite;
+}
+
 void userService::quest_entry(int step)
 {
     int i, copy = 0;
@@ -14,6 +37,7 @@ void userService::quest_entry(int step)
     fileManagment save_data;
 
     getline(cin, temp);
+    cout << "Nacisnij ENTER, aby potwierdzic gotowosc!";
 
     if (step < 0) {
         cout << "Podaj dane questa:\n";
