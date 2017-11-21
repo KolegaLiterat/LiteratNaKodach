@@ -27,24 +27,17 @@ void fileManagment::create_file()
         }
     }
 }
-void fileManagment::save_quest_data(string *data, int step, bool validation)
+void fileManagment::save_quest_data(string *data, bool endFile)
 {
     fstream file;
     int i;
-    
-    switch (validation) {
-        case false:
-            if (step < 3) {
-                file.open(fileName.c_str(), ios::out | ios::app);
-                file << data[0] << sep;
-                file.close();
-            } else {
-                file.open(fileName.c_str(), ios::out | ios::app);
-                file << data[0] << sep << "\n";
-                file.close();
-            }
-            break;
-        case true:
-            cout << "PUSTAWO TUTAJ...\n";
+    if (endFile == false) {
+        file.open(fileName.c_str(), ios::out | ios::app);
+        file << data[0] << ";";
+        file.close();
+    } else {
+        file.open(fileName.c_str(), ios::out | ios::app);
+        file << data[0] << "\n";
+        file.close();
     }
 }
