@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class fileManagment : public userService
+class fileManagment
 {
     
     public:

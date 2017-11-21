@@ -36,11 +36,11 @@ void fileManagment::save_quest_data(string *data, int step, bool validation)
         case false:
             if (step < 3) {
                 file.open(fileName.c_str(), ios::out | ios::app);
-                file << data[0] << sep;
+                file << data[0] << "|";
                 file.close();
             } else {
                 file.open(fileName.c_str(), ios::out | ios::app);
-                file << data[0] << sep << "\n";
+                file << data[0] << "|" << "\n";
                 file.close();
             }
             break;

@@ -11,7 +11,6 @@ class userService
     public:
 
     string texts[4] = {"ID:", "Nazwa:", "Autor:", "Opis:"};
-    char sep = '|';
     string temp;
     bool check;
     
