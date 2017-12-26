@@ -2,18 +2,20 @@
 LiquidCrystal lcd(8, 9, 10, 11, 12, 13);
 int interruptPinButton1 = 2;
 int interruptPinButton2 = 3;
-volatile int state = LOW;
-
+int state = LOW;
+int points = 0;
 //CLASS GAME ELEMENTS
 class gameElements
 {
     public:
 
-    int player_pos_x = 5, player_pos_y = 1;
-    int obs_pos_x, obs_pos_y, obs_x[3], obs_y[3]; 
+    int player_pos_x = 5, player_pos_y;
+    int obs_x[3], obs_y[3], obs_pos_x, obs_pos_y;
 
     char *elements[2] = {"#", "3->"};
     void show_elements(int val_move1, int val_move2, int val_move3);
+    bool player_death();
+    int player_points();
     
     protected:
 
@@ -82,6 +84,35 @@ int gameElements::get_obs_y()
     obs_y = random(0, 2);
     return obs_y;
 }
+bool gameElements::player_death()
+{
+    bool death = false;
+    int i;
+
+    for (i = 0; i < 3; i++) {
+        if (player_pos_y == obs_y[0] && player_pos_x + i == obs_x[0]) {
+            death = true;
+        }
+
+        if (player_pos_y == obs_y[1] && player_pos_x + i == obs_x[1] + 5) {
+            death = true;
+        }
+
+        if (player_pos_y == obs_y[2] && player_pos_x + i == obs_x[2] + 10) {
+            death = true;
+        }
+    }
+
+    return death;
+}
+int gameElements::player_points()
+{
+    int diff = 10;;
+
+    diff += points;
+
+    return diff;
+}
 //ARDUINO LOOP
 void change_state_low()
 {
@@ -92,7 +123,7 @@ void change_state_high()
     state = LOW;
 }
 void setup()
-{
+{   
     lcd.begin(16, 2);
     randomSeed(analogRead(0));
     pinMode(interruptPinButton1, INPUT_PULLUP);
@@ -104,11 +135,11 @@ void loop()
 {
     gameElements game;
 
-    int inf = 1, val_move0 = 0, val_move1 = 0, val_move2 = 0, val_delay = 1000;
+    int i, j, val_move0 = 0, val_move1 = 0, val_move2 = 0, val_delay = 1000;
 
-    while (inf == 1) {
+    while (game.player_death() == false) {
         game.show_elements(val_move0, val_move1, val_move2);
-        delay(300);
+        delay(val_delay);
 
         if (val_move0 == 15) {
             val_move0 = 0;
@@ -131,6 +162,22 @@ void loop()
             val_move2++;
         }
 
-        //val_delay -= 10;
+        if (val_delay != 100) {
+            val_delay -= 50;
+        }
+
+        points += 10;
+      
     }
+
+    if (game.player_death() == true) {
+        lcd.clear();
+        lcd.setCursor(4, 0);
+        lcd.print("YOU DIED");
+        lcd.setCursor(0,1);
+        lcd.print("Points: ");
+        lcd.setCursor(8, 1);
+        lcd.print(points);
+    }
+    delay(1000);
 }
