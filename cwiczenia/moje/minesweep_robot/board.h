@@ -12,7 +12,7 @@ class Board
 
     private:
 
-    int *create_board(int width, int height);
+    char *create_board(int width, int height);
     bool check_board(int value);
 };
 #endif
