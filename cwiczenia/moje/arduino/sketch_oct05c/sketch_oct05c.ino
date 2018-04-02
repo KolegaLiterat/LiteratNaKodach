@@ -1,37 +1,38 @@
-#include <LiquidCrystal.h> //Dołączenie bilbioteki
-LiquidCrystal lcd(8, 9, 10, 11, 12, 13);
-
-byte car_1[8] = {
-  B00000,
-  B00000,
-  B00111,
-  B00101,
-  B11111,
-  B11111,
-  B00110,
-  B00110,
-};
-
-byte car_2[8] = {
-    B00000,
-    B00000,
-    B11100,
-    B00100,
-    B11111,
-    B11111,
-    B01100,
-    B01100,
-};
+#include <stdint.h>
+#include <LCD.h>
+#include <SPI.h>
 
 void setup()
 {
-    lcd.createChar(0, car_1);
-    lcd.createChar(1, car_2);
-    lcd.begin(16, 2);
+    SPI.setDataMode(SPI_MODE3);
+    SPI.setBitOrder(MSBFIRST);
+    SPI.setClockDivider(SPI_CLOCK_DIV4);
+    SPI.begin();
+    
+    Tft.lcd_init();                                      // init TFT library
+
+    randomSeed(analogRead(0));
 }
 
 void loop()
 {
-    lcd.write(byte(0));
-    lcd.write(byte(1));
+  int xPos = 100, yPos = 100, wait = 1000, i = 0, randY = 0, randRad = 0;
+
+  randY = random(50, 100);
+  randRad = random(10, 80);
+  xPos = random(50, 320);
+
+  while (i == 0) {
+    Tft.lcd_draw_circle(xPos, randY, randRad, BLUE);
+    delay(wait);
+    xPos++;
+    Tft.lcd_draw_circle(xPos - 1, randY, randRad, WHITE);
+    randY = random(50, 100);
+    randRad = random(10, 80);
+    xPos = random(50, 100);
+    
+  }
+  
+  
 }
+
