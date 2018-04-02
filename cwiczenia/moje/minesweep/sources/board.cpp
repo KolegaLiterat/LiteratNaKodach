@@ -1,49 +1,42 @@
+//header
+#include "..\headers\board.h"
+//libs
 #include <cstdlib>
 #include <iostream>
 
 using namespace std;
 
-int main()
+void Board::create_board()
 {
-    //2D board array
-    char board[8][11]; 
-    
-    //board elements
-    char empty = '0', mine = '*', wall = '+';
-    
-    //control variables
     int i = 0, j = 0;
 
     for (i = 0; i < 8; i++) {
         for (j = 0; j < 11; j++) {
             if (i == 0 || i == 7) {
-                board[i][j] = wall;
+                Board::board_array[i][j] = Board::wall;
             } else if (i == 1 && j == 0 || i == 6 && j == 10) {
-                board[i][j] = wall;
+                Board::board_array[i][j] = Board::wall;
             } else if (i > 1 && i < 6 && j == 0 || i > 1 && i < 6 && j == 10) {
-                board[i][j] = wall;
+                Board::board_array[i][j] = Board::wall;
             } else if (i == 2 && j == 7 || i == 4 && j == 5 || i == 4 && j == 7) {
-                board[i][j] = mine;
+                Board::board_array[i][j] = Board::mine;
             } else {
-                board[i][j] = empty;
+                Board::board_array[i][j] = Board::empty;
             }
         }
     }
+}
+
+void Board::show_board()
+{
+    int i = 0, j = 0;
 
     for (i = 0; i < 8; i++) {
         for (j = 0; j < 11; j++) {
-            cout << board[i][j];
+            cout << Board::board_array[i][j];
+
         }
+
         cout << "\n";
     }
 }
-/**
-+++++++++++
-+0000000000
-+000000*00+
-+000000000+
-+000*00*00+
-+000000000+
-M000*00000+
-+++++++++++
-**/
