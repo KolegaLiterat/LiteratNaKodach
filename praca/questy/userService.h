@@ -10,7 +10,12 @@ class userService
 
     public:
 
+<<<<<<< HEAD
     string texts[4] = {"ID:", "Nazwa:", "Autor:", "Opis:"};
+=======
+    string textsQuestEntry[4] = {"ID:", "Nazwa:", "Autor:", "Opis:"};
+    string textsQuestValidation[4] = {"Kto sprawdzal? ", "Pytanie 1: ", "Pytanie 2: ", "Pytanie 3: "};
+>>>>>>> 968fea8ecaeeb25b7cb4d132dc4b826c3801d05c
     string temp;
     bool check;
     
@@ -18,7 +23,8 @@ class userService
 
     private:
 
-    void quest_entry(int step = -1);
-    string quest_validation (int step = -1);
+    bool quest_entry();
+    bool quest_validation();
+
 };
 #endif

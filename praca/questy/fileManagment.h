@@ -15,7 +15,7 @@ class fileManagment
     int answer;
 
     void create_file();
-    void save_quest_data(string *data, int step, bool validation);
+    void save_quest_data(string *data, bool endFile);
     void save_quest_validation(int step);
     void load_quest_table();
 };
