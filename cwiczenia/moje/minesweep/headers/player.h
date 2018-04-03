@@ -14,5 +14,6 @@ class Player
 
     //get player input
     void get_input();
+    bool test_input();
 };
 #endif

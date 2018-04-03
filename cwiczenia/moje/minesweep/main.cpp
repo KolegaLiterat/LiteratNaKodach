@@ -9,7 +9,13 @@ using namespace std;
 
 int main()
 {
-    Player test;
+    Player game;
 
-    test.get_input();
+    game.get_input();
+
+    if (game.test_input() == true) {
+        cout << "Jest dobrze!";
+    } else {
+        cout << "Jest zle!";
+    }
 }
