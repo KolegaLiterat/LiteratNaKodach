@@ -11,6 +11,7 @@ class Player
 
     //store player input
     string input = "empty";
+    string correctCharacters = "WSADI";
 
     //get player input
     void get_input();

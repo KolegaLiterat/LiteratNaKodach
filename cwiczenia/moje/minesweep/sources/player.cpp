@@ -19,20 +19,21 @@ void Player::get_input()
 bool Player::test_input()
 {   
     bool isInputCorrect = true;
-    string correctCharacters = "WSADI";
-    int i, j = 0;
+    int i, j, characterCount = 0;
 
     for (i = 0; i < Player::input.length(); i++) {
-        if (Player::input[i] != correctCharacters[j]) {
-            cout << "Bledna komenda: " << Player::input[i] << "\n";
+        
+        for (j = 0; j < Player::correctCharacters.length(); j++) {
+            if (Player::input[i] != Player::correctCharacters[j]) {
+                characterCount++;
+            }
+        }
+
+        if (characterCount == Player::correctCharacters.length()) {
             isInputCorrect = false;
             break;
         } else {
-            if (j == correctCharacters.length()) {
-                j = 0;
-            } else {
-                j++;
-            }
+            characterCount = 0;
         }
     }
     
