@@ -39,3 +39,13 @@ bool Player::test_input()
     
     return isInputCorrect;
 }
+//robot movement
+void Player::player_move()
+{
+    
+}
+//setting states based on input
+int Player::set_state(int state)
+{
+
+}
