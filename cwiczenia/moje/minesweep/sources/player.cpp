@@ -42,7 +42,6 @@ bool Player::test_input()
 //robot movement
 void Player::player_move()
 {
-    Player action;
     int i;
 
     for (i = 0; i < Player::input.length(); i++) {
@@ -68,6 +67,7 @@ void Player::player_move()
             default:
                 break;
         }
+		cout << "\n";
     }
 }
 //setting states based on input
