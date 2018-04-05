@@ -42,10 +42,50 @@ bool Player::test_input()
 //robot movement
 void Player::player_move()
 {
-    
+    Player action;
+    int i;
+
+    for (i = 0; i < Player::input.length(); i++) {
+
+        switch (set_state(&Player::input[i])) {
+            case 0:
+                cout << "Blad rozpoznawania danych od uzytkownika!\n";
+            case 1:
+                cout << "UP";
+                break;
+            case 2:
+                cout << "DOWN";
+                break;
+            case 3:
+                cout << "RIGHT";
+                break;
+            case 4:
+                cout << "LEFT";
+                break;
+            case 5:
+                cout << "START/STOP";
+                break;
+            default:
+                break;
+        }
+    }
 }
 //setting states based on input
-int Player::set_state(int state)
+int Player::set_state(string character)
 {
+    int setState = 0;
 
+    if (character[0] == 'W') {
+        setState = 1;
+    } else if (character[0] == 'S') {
+        setState = 2;
+    } else if (character[0] == 'D') {
+        setState = 3;
+    } else if (character[0] == 'A') {
+        setState = 4;
+    } else if (character[0] == 'I') {
+        setState = 5;
+    }
+
+    return setState;
 }

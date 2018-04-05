@@ -14,7 +14,7 @@ int main()
     game.get_input();
 
     if (game.test_input() == true) {
-        cout << "Jest dobrze!";
+        game.player_move();
     } else {
         cout << "Jest zle!";
     }
