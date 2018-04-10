@@ -42,7 +42,7 @@ bool Player::test_input()
 //robot movement
 void Player::player_move()
 {
-    int i;
+    int i, x = 0, y = 0;
 
     for (i = 0; i < Player::input.length(); i++) {
 

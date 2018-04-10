@@ -6,8 +6,11 @@
 
 using namespace std;
 
+//public
 void Board::create_board()
-{
+{   
+    Board playerPawnY;
+
     int i = 0, j = 0;
 
     for (i = 0; i < 8; i++) {
@@ -27,7 +30,10 @@ void Board::create_board()
     }
 
     //set player starting position
-    Board::board_array[6][0] = Board::pawn;
+    Board::board_array[1][10] = Board::pawn;
+
+    cout << "Y gracza = " << Board::find_player_pawn('Y') << "\n";
+    cout << "X gracza = " << Board::find_player_pawn('X') << "\n";
 }
 
 void Board::show_board()
@@ -41,4 +47,28 @@ void Board::show_board()
 
         cout << "\n";
     }
+}
+//private
+int Board::find_player_pawn(char axis)
+{
+    int i, j, valueY = -1, valueX = -1;
+
+    for (i = 0; i < 8; i++) {
+        
+        cout << "Dziala" << i << "\n";
+
+        for (j = 0; j < 11; j++) {
+            if (Board::board_array[i][j] == Board::pawn) {
+                valueY = i;
+                valueX = j;
+                break;
+            }
+        }
+    }
+
+    if (axis == 'Y') {
+        return valueY;
+    } else if (axis == 'X') {
+        return valueX;
+    } 
 }

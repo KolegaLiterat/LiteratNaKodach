@@ -14,5 +14,9 @@ class Board
 
     void create_board();
     void show_board();
+
+    private:
+
+    int find_player_pawn(char axis);
 };
 #endif
