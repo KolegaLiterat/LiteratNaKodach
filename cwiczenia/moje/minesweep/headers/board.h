@@ -9,6 +9,8 @@ class Board
     char board_array[8][11];
     //board elements
     char empty = '0', mine = '*', wall = '+';
+    //player pawn
+    char pawn = 'R';
 
     void create_board();
     void show_board();

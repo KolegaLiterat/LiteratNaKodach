@@ -25,6 +25,9 @@ void Board::create_board()
             }
         }
     }
+
+    //set player starting position
+    Board::board_array[6][0] = Board::pawn;
 }
 
 void Board::show_board()
@@ -34,7 +37,6 @@ void Board::show_board()
     for (i = 0; i < 8; i++) {
         for (j = 0; j < 11; j++) {
             cout << Board::board_array[i][j];
-
         }
 
         cout << "\n";
