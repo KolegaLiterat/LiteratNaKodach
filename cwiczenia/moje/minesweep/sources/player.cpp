@@ -19,7 +19,7 @@ void Player::get_input()
 bool Player::test_input()
 {   
     bool isInputCorrect = true;
-    int i, j, characterCount = 0;
+    int i = -1, j = -1, characterCount = 0;
     
     for (i = 0; i < Player::input.length(); i++) {
         
@@ -42,7 +42,7 @@ bool Player::test_input()
 //robot movement
 void Player::player_move()
 {
-    int i, x = 0, y = 0;
+    int i = -1, x = -1, y = -1;
 
     for (i = 0; i < Player::input.length(); i++) {
 
@@ -73,7 +73,7 @@ void Player::player_move()
 //setting states based on input
 int Player::set_state(string character)
 {
-    int setState = 0;
+    int setState = -1;
 
     if (character[0] == 'W') {
         setState = 1;

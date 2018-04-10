@@ -11,10 +11,10 @@ void Board::create_board()
 {   
     Board playerPawnY;
 
-    int i = 0, j = 0;
+    int i = -1, j = -1;
 
-    for (i = 0; i < 8; i++) {
-        for (j = 0; j < 11; j++) {
+    for (i = 0; i < Y; i++) {
+        for (j = 0; j < X; j++) {
             if (i == 0 || i == 7) {
                 Board::board_array[i][j] = Board::wall;
             } else if (i == 1 && j == 0 || i == 6 && j == 10) {
@@ -38,10 +38,10 @@ void Board::create_board()
 
 void Board::show_board()
 {
-    int i = 0, j = 0;
+    int i = -1, j = -1;
 
-    for (i = 0; i < 8; i++) {
-        for (j = 0; j < 11; j++) {
+    for (i = 0; i < Y; i++) {
+        for (j = 0; j < X; j++) {
             cout << Board::board_array[i][j];
         }
 
@@ -51,13 +51,10 @@ void Board::show_board()
 //private
 int Board::find_player_pawn(char axis)
 {
-    int i, j, valueY = -1, valueX = -1;
+    int i = -1, j = -1, valueY = -1, valueX = -1;
 
-    for (i = 0; i < 8; i++) {
-        
-        cout << "Dziala" << i << "\n";
-
-        for (j = 0; j < 11; j++) {
+    for (i = 0; i < Y; i++) {
+        for (j = 0; j < X; j++) {
             if (Board::board_array[i][j] == Board::pawn) {
                 valueY = i;
                 valueX = j;
