@@ -9,20 +9,18 @@ using namespace std;
 
 int main()
 {
-    Player game;
-    /*
     Board board;
+    Player pawn;
 
-    board.create_board();
-    board.show_board();
-    */
+    int turn = 1; 
+
+    //board.create_board();
+    //board.show_board();
     
-    game.get_input();
+    pawn.get_input();
 
-    if (game.test_input() == true) {
-        game.player_move();
-    } else {
-        cout << "Jest zle!";
+    while (turn <= pawn.input.length()) {
+        cout << "Tura" << turn << "\n";
+        turn++;
     }
-   
 }

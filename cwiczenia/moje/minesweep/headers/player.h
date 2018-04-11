@@ -19,14 +19,13 @@ class Player
         A -> left (4)
         I -> start/stop (5)
     */
-    //get and test player input
+    //start check
+    bool isPawnOn = false;
     void get_input();
-    bool test_input();
-    //move robot on board
-    void player_move();
+    int set_state();
 
     private:
-
-    int set_state(string character);
+    //test input
+    bool test_input();
 };
 #endif

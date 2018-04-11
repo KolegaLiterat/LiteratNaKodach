@@ -39,43 +39,32 @@ bool Player::test_input()
     
     return isInputCorrect;
 }
-//robot movement
-void Player::player_move()
+//robot movement states 
+int Player::set_state()
 {
-    int i = -1, x = -1, y = -1, state = 0;
+    int i = -1, x = -1, y = -1, state = -1;
 
     for (i = 0; i < Player::input.length(); i++) {
-        
-        state = set_state(&Player::input[i]);
-
-        if (state == 0) {
-            cout << "Blad rozpoznawania danych";
-        } else if (state == 1 || state == 3) {
-            cout << "+ 1";
-        } else if (state == 2 || state == 4) {
-            cout << "-1";
-        } else if (state == 5) {
-            cout << "Start/stop";
+        if (Player::input[i] == 'W') {
+            state = 1;
+            break;
+        } else if (Player::input[i] == 'S') {
+            state = 2;
+            break;
+        } else if (Player::input[i] == 'D') {
+            state = 3;
+            break;
+        } else if (Player::input[i] == 'A') {
+            state = 4;
+            break;
+        } else if (Player::input[i] == 'I') {
+            if (Player::isPawnOn == false) {
+                Player::isPawnOn = true;
+            } else {
+                Player::isPawnOn = false;
+            }
         }
-		cout << "\n";
-    }
-}
-//setting states based on input
-int Player::set_state(string character)
-{
-    int setState = -1;
-
-    if (character[0] == 'W') {
-        setState = 1;
-    } else if (character[0] == 'S') {
-        setState = 2;
-    } else if (character[0] == 'D') {
-        setState = 3;
-    } else if (character[0] == 'A') {
-        setState = 4;
-    } else if (character[0] == 'I') {
-        setState = 5;
     }
 
-    return setState;
+    return state;
 }

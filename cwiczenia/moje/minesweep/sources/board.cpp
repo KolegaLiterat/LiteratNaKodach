@@ -29,9 +29,6 @@ void Board::create_board()
 
     //set player starting position
     Board::board_array[6][0] = Board::pawn;
-
-    cout << "Y gracza = " << Board::find_player_pawn('Y') << "\n";
-    cout << "X gracza = " << Board::find_player_pawn('X') << "\n";
 }
 
 void Board::show_board()
@@ -46,9 +43,31 @@ void Board::show_board()
         cout << "\n";
     }
 }
-void Board::update_board(int moveValue)
+void Board::update_board(int &moveValue)
 {
+    int playerPawnY = -1, playerPawnX = -1;
 
+    playerPawnY = find_player_pawn('Y');
+    playerPawnX = find_player_pawn('X');
+
+    switch (moveValue) {
+        case 1:
+            Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
+            break;
+        case 2:
+            Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
+            break;
+        case 3:
+            Board::board_array[playerPawnY][playerPawnX + 1] = pawn;
+            break;
+        case 4:
+            Board::board_array[playerPawnY][playerPawnX - 1] = pawn;
+            break;
+        default:
+            break;
+    }
+
+    Board::show_board();
 }
 //private
 int Board::find_player_pawn(char axis)
