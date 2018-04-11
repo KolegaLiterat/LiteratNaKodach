@@ -9,8 +9,6 @@ using namespace std;
 //public
 void Board::create_board()
 {   
-    Board playerPawnY;
-
     int i = -1, j = -1;
 
     for (i = 0; i < Y; i++) {
@@ -30,7 +28,7 @@ void Board::create_board()
     }
 
     //set player starting position
-    Board::board_array[1][10] = Board::pawn;
+    Board::board_array[6][0] = Board::pawn;
 
     cout << "Y gracza = " << Board::find_player_pawn('Y') << "\n";
     cout << "X gracza = " << Board::find_player_pawn('X') << "\n";
@@ -47,6 +45,10 @@ void Board::show_board()
 
         cout << "\n";
     }
+}
+void Board::update_board(int moveValue)
+{
+
 }
 //private
 int Board::find_player_pawn(char axis)

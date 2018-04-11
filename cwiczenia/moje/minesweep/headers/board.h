@@ -18,6 +18,7 @@ class Board
 
     void create_board();
     void show_board();
+    void update_board(int moveValue);
 
     private:
 
