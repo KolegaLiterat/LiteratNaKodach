@@ -21,11 +21,12 @@ class Player
     */
     //start check
     bool isPawnOn = false;
+    
     void get_input();
     int set_state(int &arrayIndex);
 
     private:
-    //test input
+
     bool test_input();
 };
 #endif

@@ -29,6 +29,8 @@ void Board::create_board()
 
     //set player starting position
     Board::board_array[6][0] = Board::pawn;
+    //set meta position
+    Board::board_array[1][10] = Board::meta;
 }
 
 void Board::show_board()
@@ -47,8 +49,8 @@ void Board::update_board(int &moveValue)
 {
     int playerPawnY, playerPawnX;
 
-    playerPawnY = find_player_pawn('Y', true);
-    playerPawnX = find_player_pawn('X', true);
+    playerPawnY = find_coordinates('Y', true);
+    playerPawnX = find_coordinates('X', true);
 
     switch (moveValue) {
         case 1:

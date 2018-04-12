@@ -18,7 +18,7 @@ int main()
     board.show_board();
     
     pawn.get_input();
-
+    
     while (turn <= pawn.input.length()) {
         state = pawn.set_state(input);
 

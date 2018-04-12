@@ -14,6 +14,12 @@ void Player::get_input()
         << "[S] -> STOP\nZasady:\nNalezy przeprowadzic robota [R] z punktu startowego do mety [M]\n";
     cout << "Opisz ściezke!\n";
     getline(cin, Player::input);
+
+    if (Player::test_input() == false) {
+        cout << "Bledna komenda! Podaj ponownie ciag operacji!" << "\n";
+
+        Player::get_input();
+    }
 }
 //test input to check characters from user
 bool Player::test_input()
