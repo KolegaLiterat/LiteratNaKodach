@@ -12,7 +12,7 @@ class Board
     //2D board array
     char board_array[Y][X];
     //board elements
-    char empty = '0', mine = '*', wall = '+';
+    char empty = '0', mine = '*', wall = '+', meta = 'M';
     //player pawn
     char pawn = 'R';
 
@@ -22,6 +22,6 @@ class Board
 
     private:
 
-    int find_player_pawn(char axis);
+    int find_player_pawn(char axis, bool player);
 };
 #endif

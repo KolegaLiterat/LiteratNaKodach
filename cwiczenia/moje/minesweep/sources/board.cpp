@@ -47,8 +47,8 @@ void Board::update_board(int &moveValue)
 {
     int playerPawnY, playerPawnX;
 
-    playerPawnY = find_player_pawn('Y');
-    playerPawnX = find_player_pawn('X');
+    playerPawnY = find_player_pawn('Y', true);
+    playerPawnX = find_player_pawn('X', true);
 
     switch (moveValue) {
         case 1:
@@ -74,16 +74,28 @@ void Board::update_board(int &moveValue)
     Board::show_board();
 }
 //private
-int Board::find_player_pawn(char axis)
+int Board::find_player_pawn(char axis, bool player)
 {
     int i, j, valueY = 0, valueX = 0;
 
-    for (i = 0; i < Y; i++) {
-        for (j = 0; j < X; j++) {
-            if (Board::board_array[i][j] == Board::pawn) {
-                valueY = i;
-                valueX = j;
-                break;
+    if (player == true) {
+        for (i = 0; i < Y; i++) {
+            for (j = 0; j < X; j++) {
+                if (Board::board_array[i][j] == Board::pawn) {
+                    valueY = i;
+                    valueX = j;
+                    break;
+                }
+            }
+        }
+    } else {
+        for (i = 0; i < Y; i++) {
+            for (j = 0; j < X; j++) {
+                if (Board::board_array[i][j] == Board::meta) {
+                    valueY = i;
+                    valueX = j;
+                    break;
+                }
             }
         }
     }
