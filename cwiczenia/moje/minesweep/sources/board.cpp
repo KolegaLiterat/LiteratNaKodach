@@ -52,10 +52,10 @@ void Board::update_board(int &moveValue)
 
     switch (moveValue) {
         case 1:
-            Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
+            Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
             break;
         case 2:
-            Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
+            Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
             break;
         case 3:
             Board::board_array[playerPawnY][playerPawnX + 1] = pawn;
@@ -66,7 +66,11 @@ void Board::update_board(int &moveValue)
         default:
             break;
     }
+    
+    //delete previous player pawn position
+    Board::board_array[playerPawnY][playerPawnX] = empty;
 
+    //show updated board
     Board::show_board();
 }
 //private
