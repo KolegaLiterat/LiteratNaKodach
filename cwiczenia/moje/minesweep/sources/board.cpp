@@ -52,28 +52,31 @@ void Board::update_board(int &moveValue)
     playerPawnY = find_coordinates('Y', true);
     playerPawnX = find_coordinates('X', true);
 
-    switch (moveValue) {
-        case 1:
-            Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
-            break;
-        case 2:
-            Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
-            break;
-        case 3:
-            Board::board_array[playerPawnY][playerPawnX + 1] = pawn;
-            break;
-        case 4:
-            Board::board_array[playerPawnY][playerPawnX - 1] = pawn;
-            break;
-        default:
-            break;
+    if (Board::check_movement == true) {
+        switch (moveValue) {
+            case 1:
+                Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
+                break;
+            case 2:
+                Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
+                break;
+            case 3:
+                Board::board_array[playerPawnY][playerPawnX + 1] = pawn;
+                break;
+            case 4:
+                Board::board_array[playerPawnY][playerPawnX - 1] = pawn;
+                break;
+            default:
+                break;
+        }
+        //delete previous player pawn position
+        Board::board_array[playerPawnY][playerPawnX] = empty;
+        //show updated board
+        Board::show_board();
+    } else {
+        cout << "Ruch niemozliwy! Koniec gry!";
+        exit(0);
     }
-    
-    //delete previous player pawn position
-    Board::board_array[playerPawnY][playerPawnX] = empty;
-
-    //show updated board
-    Board::show_board();
 }
 //private
 int Board::find_coordinates(char axis, bool player)
@@ -107,4 +110,8 @@ int Board::find_coordinates(char axis, bool player)
     } else if (axis == 'X') {
         return valueX;
     } 
+}
+bool Board::check_movement(int &playerPawnY, int &playerPawnX, int &moveValue)
+{
+
 }

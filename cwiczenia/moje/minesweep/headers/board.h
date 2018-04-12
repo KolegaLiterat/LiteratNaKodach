@@ -24,5 +24,6 @@ class Board
 
     //used to find coordinates of player (if true) or meta (if false)
     int find_coordinates(char axis, bool player);
+    bool check_movement(int &playerPawnY, int &playerPawnX, int &moveValue);
 };
 #endif
