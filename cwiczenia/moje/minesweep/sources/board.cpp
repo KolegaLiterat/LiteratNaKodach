@@ -74,7 +74,7 @@ void Board::update_board(int &moveValue)
     Board::show_board();
 }
 //private
-int Board::find_player_pawn(char axis, bool player)
+int Board::find_coordinates(char axis, bool player)
 {
     int i, j, valueY = 0, valueX = 0;
 
