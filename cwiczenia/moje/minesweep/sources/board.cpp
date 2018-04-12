@@ -9,7 +9,7 @@ using namespace std;
 //public
 void Board::create_board()
 {   
-    int i = -1, j = -1;
+    int i, j;
 
     for (i = 0; i < Y; i++) {
         for (j = 0; j < X; j++) {
@@ -33,7 +33,7 @@ void Board::create_board()
 
 void Board::show_board()
 {
-    int i = -1, j = -1;
+    int i, j;
 
     for (i = 0; i < Y; i++) {
         for (j = 0; j < X; j++) {
@@ -45,7 +45,7 @@ void Board::show_board()
 }
 void Board::update_board(int &moveValue)
 {
-    int playerPawnY = -1, playerPawnX = -1;
+    int playerPawnY, playerPawnX;
 
     playerPawnY = find_player_pawn('Y');
     playerPawnX = find_player_pawn('X');
@@ -72,7 +72,7 @@ void Board::update_board(int &moveValue)
 //private
 int Board::find_player_pawn(char axis)
 {
-    int i = -1, j = -1, valueY = -1, valueX = -1;
+    int i, j, valueY = 0, valueX = 0;
 
     for (i = 0; i < Y; i++) {
         for (j = 0; j < X; j++) {

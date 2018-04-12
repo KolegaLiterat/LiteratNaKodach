@@ -19,7 +19,7 @@ void Player::get_input()
 bool Player::test_input()
 {   
     bool isInputCorrect = true;
-    int i = -1, j = -1, characterCount = 0;
+    int i, j, characterCount = 0;
     
     for (i = 0; i < Player::input.length(); i++) {
         
@@ -40,29 +40,23 @@ bool Player::test_input()
     return isInputCorrect;
 }
 //robot movement states 
-int Player::set_state()
+int Player::set_state(int &arrayIndex)
 {
-    int i = -1, x = -1, y = -1, state = -1;
-
-    for (i = 0; i < Player::input.length(); i++) {
-        if (Player::input[i] == 'W') {
-            state = 1;
-            break;
-        } else if (Player::input[i] == 'S') {
-            state = 2;
-            break;
-        } else if (Player::input[i] == 'D') {
-            state = 3;
-            break;
-        } else if (Player::input[i] == 'A') {
-            state = 4;
-            break;
-        } else if (Player::input[i] == 'I') {
-            if (Player::isPawnOn == false) {
-                Player::isPawnOn = true;
-            } else {
-                Player::isPawnOn = false;
-            }
+    int state = 0;
+    
+    if (Player::input[arrayIndex] == 'W') {
+        state = 1;
+    } else if (Player::input[arrayIndex] == 'S') {
+        state = 2;
+    } else if (Player::input[arrayIndex] == 'D') {
+        state = 3;
+    } else if (Player::input[arrayIndex] == 'A') {
+        state = 4;
+    } else if (Player::input[arrayIndex] == 'I') {
+        if (Player::isPawnOn == false) {
+            Player::isPawnOn = true;
+        } else {
+            Player::isPawnOn = false;
         }
     }
 
