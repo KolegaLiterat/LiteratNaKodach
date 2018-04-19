@@ -113,37 +113,30 @@ int Board::find_coordinates(char axis, bool player)
 }
 bool Board::check_movement(int &playerPawnY, int &playerPawnX, int &moveValue)
 {
-    bool isMoveAvailabe = false;
-    int elementsCount = 0, i;
+    bool isMoveAvailabe = true;
 
-    for (i = 0; i < Board::board_elements.length(); i++) {
-        switch (moveValue) {
-            case 1:
-                if (Board::board_array[playerPawnY - 1][playerPawnX] == Board::board_elements[i]) {
-                    elementsCount++;
-                }
-                break;
-            case 2:
-                if (Board::board_array[playerPawnY + 1][playerPawnX] == Board::board_elements[i]) {
-                    elementsCount++;
-                }
-                break;
-            case 3:
-                if (Board::board_array[playerPawnY][playerPawnX + 1] == Board::board_elements[i]) {
-                    elementsCount++;
-                }
-            case 4:
-                if (Board::board_array[playerPawnY][playerPawnX - 1] == Board::board_elements[i]) {
-                    elementsCount++;
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    if (elementsCount == 0) {
-        isMoveAvailabe = true;
+    switch (moveValue) {
+        case 1:
+            if (Board::board_array[playerPawnY - 1][playerPawnX] != Board::board_elements[0]) {
+                isMoveAvailabe = false;
+            }
+            break;
+        case 2:
+            if (Board::board_array[playerPawnY + 1][playerPawnX] != Board::board_elements[0]) {
+                isMoveAvailabe = false;
+            }
+            break;
+        case 3:
+            if (Board::board_array[playerPawnY][playerPawnX + 1] != Board::board_elements[0]) {
+                isMoveAvailabe = false;
+            }
+        case 4:
+            if (Board::board_array[playerPawnY][playerPawnX + 1] != Board::board_elements[0]) {
+                isMoveAvailabe = false;
+            }
+            break;
+        default:
+            break;
     }
 
     return isMoveAvailabe;
