@@ -114,31 +114,24 @@ int Board::find_coordinates(char axis, bool player)
 bool Board::check_movement(int &playerPawnY, int &playerPawnX, int &moveValue)
 {
     bool isMoveAvailabe = true;
-    
-	cout << "Ruch!";
 
     switch (moveValue) {
         case 1:
-
-            cout << 1;
             if (Board::board_array[playerPawnY - 1][playerPawnX] != Board::board_elements[0]) {
                 isMoveAvailabe = false;
             }
             break;
         case 2:
-            cout << 2;
             if (Board::board_array[playerPawnY + 1][playerPawnX] != Board::board_elements[0]) {
                 isMoveAvailabe = false;
             }
             break;
         case 3:
-            cout << 3;
             if (Board::board_array[playerPawnY][playerPawnX + 1] != Board::board_elements[0] || playerPawnX > 11) {
                 isMoveAvailabe = false;
             }
             break;
         case 4:
-            cout << 4;
             if (Board::board_array[playerPawnY][playerPawnX - 1] != Board::board_elements[0] || playerPawnX < 0) {
                 isMoveAvailabe = false;
             }
