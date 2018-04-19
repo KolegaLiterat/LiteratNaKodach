@@ -70,7 +70,7 @@ void Board::update_board(int &moveValue)
                 break;
         }
         //delete previous player pawn position
-        Board::board_array[playerPawnY][playerPawnX] = empty;
+        Board::board_array[playerPawnY][playerPawnX] = Board::board_elements[0];
         //show updated board
         Board::show_board();
     } else {
@@ -114,23 +114,37 @@ int Board::find_coordinates(char axis, bool player)
 bool Board::check_movement(int &playerPawnY, int &playerPawnX, int &moveValue)
 {
     bool isMoveAvailabe = false;
+    int elementsCount = 0, i;
 
-    switch (moveValue) {
+    for (i = 0; i < Board::board_elements.length(); i++) {
+        switch (moveValue) {
             case 1:
-                Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
+                if (Board::board_array[playerPawnY - 1][playerPawnX] == Board::board_elements[i]) {
+                    elementsCount++;
+                }
                 break;
             case 2:
-                Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
+                if (Board::board_array[playerPawnY + 1][playerPawnX] == Board::board_elements[i]) {
+                    elementsCount++;
+                }
                 break;
             case 3:
-                Board::board_array[playerPawnY][playerPawnX + 1] = pawn;
-                break;
+                if (Board::board_array[playerPawnY][playerPawnX + 1] == Board::board_elements[i]) {
+                    elementsCount++;
+                }
             case 4:
-                Board::board_array[playerPawnY][playerPawnX - 1] = pawn;
+                if (Board::board_array[playerPawnY][playerPawnX - 1] == Board::board_elements[i]) {
+                    elementsCount++;
+                }
                 break;
             default:
                 break;
         }
+    }
+
+    if (elementsCount == 0) {
+        isMoveAvailabe = true;
+    }
 
     return isMoveAvailabe;
 }

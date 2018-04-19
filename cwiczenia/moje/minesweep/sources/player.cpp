@@ -61,7 +61,6 @@ bool Player::test_input()
 
         if (characterCount == Player::correctCharacters.length()) {
             isInputCorrect = false;
-            break;
         } else {
             characterCount = 0;
         }

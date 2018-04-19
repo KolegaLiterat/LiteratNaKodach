@@ -4,6 +4,10 @@
 //default values
 #define Y 8
 #define X 11
+//libs
+#include <string>
+
+using namespace std;
 
 class Board
 {
