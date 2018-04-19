@@ -12,9 +12,11 @@ class Board
     //2D board array
     char board_array[Y][X];
     //board elements
-    char empty = '0', mine = '*', wall = '+', meta = 'M';
+    string board_elements = "0*+";
     //player pawn
     char pawn = 'R';
+    //meta
+    char meta = 'M';
 
     void create_board();
     void show_board();

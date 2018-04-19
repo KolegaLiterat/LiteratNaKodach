@@ -14,15 +14,15 @@ void Board::create_board()
     for (i = 0; i < Y; i++) {
         for (j = 0; j < X; j++) {
             if (i == 0 || i == 7) {
-                Board::board_array[i][j] = Board::wall;
+                Board::board_array[i][j] = Board::board_elements[2];
             } else if (i == 1 && j == 0 || i == 6 && j == 10) {
-                Board::board_array[i][j] = Board::wall;
+                Board::board_array[i][j] = Board::board_elements[2];
             } else if (i > 1 && i < 6 && j == 0 || i > 1 && i < 6 && j == 10) {
-                Board::board_array[i][j] = Board::wall;
+                Board::board_array[i][j] = Board::board_elements[2];
             } else if (i == 2 && j == 7 || i == 4 && j == 5 || i == 4 && j == 7) {
-                Board::board_array[i][j] = Board::mine;
+                Board::board_array[i][j] = Board::board_elements[1];
             } else {
-                Board::board_array[i][j] = Board::empty;
+                Board::board_array[i][j] = Board::board_elements[0];
             }
         }
     }
