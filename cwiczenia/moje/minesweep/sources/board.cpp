@@ -52,7 +52,7 @@ void Board::update_board(int &moveValue)
     playerPawnY = find_coordinates('Y', true);
     playerPawnX = find_coordinates('X', true);
 
-    if (Board::check_movement == true) {
+    if (Board::check_movement(playerPawnY, playerPawnX, moveValue) == true) {
         switch (moveValue) {
             case 1:
                 Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
@@ -113,5 +113,24 @@ int Board::find_coordinates(char axis, bool player)
 }
 bool Board::check_movement(int &playerPawnY, int &playerPawnX, int &moveValue)
 {
+    bool isMoveAvailabe = false;
 
+    switch (moveValue) {
+            case 1:
+                Board::board_array[playerPawnY - 1][playerPawnX] = pawn;
+                break;
+            case 2:
+                Board::board_array[playerPawnY + 1][playerPawnX] = pawn;
+                break;
+            case 3:
+                Board::board_array[playerPawnY][playerPawnX + 1] = pawn;
+                break;
+            case 4:
+                Board::board_array[playerPawnY][playerPawnX - 1] = pawn;
+                break;
+            default:
+                break;
+        }
+
+    return isMoveAvailabe;
 }
