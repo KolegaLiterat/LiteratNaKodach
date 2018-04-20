@@ -49,8 +49,8 @@ void Board::update_board(int &moveValue)
 {
     int playerPawnY, playerPawnX;
 
-    playerPawnY = find_coordinates('Y', true);
-    playerPawnX = find_coordinates('X', true);
+    playerPawnY = find_coordinates('Y', Board::pawn);
+    playerPawnX = find_coordinates('X', Board::pawn);
 
     if (Board::check_movement(playerPawnY, playerPawnX, moveValue) == true) {
         switch (moveValue) {
@@ -79,24 +79,14 @@ void Board::update_board(int &moveValue)
     }
 }
 //private
-int Board::find_coordinates(char axis, bool player)
+int Board::find_coordinates(char axis, char &element)
 {
     int i, j, valueY = 0, valueX = 0;
 
     if (player == true) {
         for (i = 0; i < Y; i++) {
             for (j = 0; j < X; j++) {
-                if (Board::board_array[i][j] == Board::pawn) {
-                    valueY = i;
-                    valueX = j;
-                    break;
-                }
-            }
-        }
-    } else {
-        for (i = 0; i < Y; i++) {
-            for (j = 0; j < X; j++) {
-                if (Board::board_array[i][j] == Board::meta) {
+                if (Board::board_array[i][j] == element) {
                     valueY = i;
                     valueX = j;
                     break;
