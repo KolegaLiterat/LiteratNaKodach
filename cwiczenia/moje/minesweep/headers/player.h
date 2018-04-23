@@ -3,15 +3,13 @@
 
 #include <string>
 
-using namespace std;
-
 class Player
 {
     public:
 
     //store player input
-    string input = "empty";
-    string correctCharacters = "WSADI"; //W -> up ; S -> down; D -> right; A -> left; I -> start/stop;
+    std::string input = "empty";
+    std::string correctCharacters = "WSADI"; //W -> up ; S -> down; D -> right; A -> left; I -> start/stop;
     /* Controls states:
         W -> up (1)
         S -> down (2)

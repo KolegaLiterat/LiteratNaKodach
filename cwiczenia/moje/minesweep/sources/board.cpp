@@ -83,17 +83,15 @@ int Board::find_coordinates(char axis, char &element)
 {
     int i, j, valueY = 0, valueX = 0;
 
-    if (player == true) {
-        for (i = 0; i < Y; i++) {
-            for (j = 0; j < X; j++) {
-                if (Board::board_array[i][j] == element) {
-                    valueY = i;
-                    valueX = j;
-                    break;
+    for (i = 0; i < Y; i++) {
+        for (j = 0; j < X; j++) {
+            if (Board::board_array[i][j] == element) {
+                valueY = i;
+                valueX = j;
+                break;
                 }
             }
         }
-    }
 
     if (axis == 'Y') {
         return valueY;

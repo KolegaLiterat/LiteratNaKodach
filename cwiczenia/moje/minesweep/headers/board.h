@@ -7,8 +7,6 @@
 //libs
 #include <string>
 
-using namespace std;
-
 class Board
 {
     public:
@@ -16,7 +14,7 @@ class Board
     //2D board array
     char board_array[Y][X];
     //board elements
-    string board_elements = "0*+";
+    std::string board_elements = "0*+";
     //player pawn
     char pawn = 'R';
     //meta
