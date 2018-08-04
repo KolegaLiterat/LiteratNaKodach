@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Boks"
-run/main_scene="res://scenes/Player1.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [input]

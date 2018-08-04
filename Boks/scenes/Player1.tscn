@@ -147,8 +147,9 @@ custom_solver_bias = 0.0
 radius = 99.5776
 height = 52.9035
 
-[node name="Player1" type="Area2D" index="0"]
+[node name="Player1" type="Area2D"]
 
+editor/display_folded = true
 position = Vector2( 161.675, 379.982 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -170,7 +171,7 @@ hand = 1
 position = Vector2( -59.9409, -32.763 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 5
+frame = 2
 playing = true
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
@@ -185,5 +186,7 @@ _sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="Node" type="Node" parent="." index="2"]
 
 
