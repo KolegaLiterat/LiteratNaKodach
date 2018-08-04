@@ -13,7 +13,6 @@ func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		position.x += speedMovement
 		$AnimatedSprite.play("walk")
-		
 	elif Input.is_action_pressed("ui_left"):
 		position.x -= speedMovement
 		$AnimatedSprite.play("walkBack")
@@ -24,6 +23,10 @@ func _process(delta):
 		elif hand == 1:
 			hand = 0
 			$AnimatedSprite.play("punchLeft")
+	elif Input.is_action_pressed("player1special"):
+		$AnimatedSprite.play("punchUp")
+	elif Input.is_action_pressed("player1block"):
+		$AnimatedSprite.play("block")
 	else:
 		$AnimatedSprite.play("idle")
 	
