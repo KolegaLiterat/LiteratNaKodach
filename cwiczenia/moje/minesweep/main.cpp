@@ -1,30 +1,33 @@
-//headers
-#include "headers/board.h"
-#include "headers/player.h"
-//libs
-#include <cstdlib>
-#include <iostream>
-
-using namespace std;
+#include <nana/gui.hpp>
+#include <nana/gui/widgets/label.hpp>
+#include <nana/gui/widgets/button.hpp>
 
 int main()
 {
-    Board board;
-    Player pawn;
+	using namespace nana;
 
-    int turn = 1, state, input = 0;
+	//Define a form.
+	form fm;
 
-    board.create_board();
-    board.show_board();
-    
-    pawn.get_input();
-    
-    while (turn <= pawn.input.length()) {
-        state = pawn.set_state(input);
+	//Define a label and display a text.
+	label lab{ fm, "Hello, <bold blue size=16>Nana C++ Library</>" };
+	lab.format(true);
 
-        board.update_board(state);
+	//Define a button and answer the click event.
+	button btn{ fm, "Quit" };
+	btn.events().click([&fm] {
+		fm.close();
+	});
 
-        turn++;
-        input++;
-    }
+	//Layout management
+	fm.div("vert <><<><weight=80% text><>><><weight=24<><button><>><>");
+	fm["text"] << lab;
+	fm["button"] << btn;
+	fm.collocate();
+
+	//Show the form
+	fm.show();
+
+	//Start to event loop process, it blocks until the form is closed.
+	exec();
 }

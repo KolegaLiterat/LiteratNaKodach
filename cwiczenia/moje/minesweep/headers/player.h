@@ -19,6 +19,8 @@ class Player
     */
     //start check
     bool isPawnOn = false;
+    bool isPawnAlive = true;
+    bool isPawnOnEnd = false;
     
     void get_input();
     int set_state(int &arrayIndex);
