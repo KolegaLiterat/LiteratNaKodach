@@ -1,39 +1,36 @@
 extends Area2D
 
+
 export (int) var speedMovement
 export (int) var hand
 var screensize
+var animation = ""
+var attack = false
 
 func _ready():
 	screensize = get_viewport_rect().size
 
-func _process(delta):
-	var velocity = Vector2()
+func _physics_process(delta):
 	
-	if Input.is_action_pressed("ui_right"):
-		position.x += speedMovement
-		$AnimatedSprite.play("walk")
-	elif Input.is_action_pressed("ui_left"):
-		position.x -= speedMovement
-		$AnimatedSprite.play("walkBack")
-	elif Input.is_action_pressed("player1attack"):
-		if hand == 0:
-			hand = 1;
-			$AnimatedSprite.play("punchRight")
-		elif hand == 1:
-			hand = 0
-			$AnimatedSprite.play("punchLeft")
-	elif Input.is_action_pressed("player1special"):
-		$AnimatedSprite.play("punchUp")
-	elif Input.is_action_pressed("player1block"):
-		$AnimatedSprite.play("block")
-	else:
-		$AnimatedSprite.play("idle")
+	var newAnimation = "idle"
 	
-	position += velocity * delta
-	position.x = clamp(position.x, 0, screensize.x)
+	if Input.is_action_pressed("ui_up"):
+		attack = true
+	elif Input.is_action_pressed("ui_down"):
+		attack = false
 	
+	
+	print(attack)
+	
+	if attack == false:
+		newAnimation = "idle"
+	elif attack == true:
+		newAnimation = "punchUp"
+	
+	if newAnimation != animation:
+		animation = newAnimation
+		$AnimatedSprite.play(animation)
 		
-		
-		
+	
+	
 	
