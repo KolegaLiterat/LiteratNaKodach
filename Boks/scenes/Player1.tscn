@@ -141,7 +141,7 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 99.2812
@@ -160,7 +160,6 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Audio Bus", "Collision", "Pause", "Transform" ]
 speedMovement = 3
-hand = 0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -173,6 +172,8 @@ _sections_unfolded = [ "Pause", "Transform", "Visibility" ]
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 8.83636, -1.03357 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 
 
